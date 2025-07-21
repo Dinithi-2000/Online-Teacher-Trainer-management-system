@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Trainers - EduMentor Pro</title>
+    <meta name="description" content="Meet our certified trainers and education experts">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="trainers.html" class="nav-link active">Trainers</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header bg-primary text-white py-5 mt-5">
+        <div class="container">
+            <h1>Expert Trainers</h1>
+            <p>Learn from certified education professionals with proven expertise</p>
+            
+            <!-- Trainer Search -->
+            <div class="search-bar mt-4">
+                <div class="d-flex gap-2">
+                    <input type="text" id="trainer-search" class="form-control" placeholder="Search trainers by name or expertise..." data-search="trainers">
+                    <button type="button" class="btn btn-secondary" onclick="performSearch()" title="Search trainers" aria-label="Search trainers">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="expertise-filter" class="sr-only">Filter by expertise</label>
+                    <select id="expertise-filter" name="expertise" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by expertise">
+                        <option value="">All Expertise</option>
+                        <option value="Digital Teaching">Digital Teaching</option>
+                        <option value="Classroom Management">Classroom Management</option>
+                        <option value="Assessment">Assessment</option>
+                        <option value="Curriculum Development">Curriculum Development</option>
+                        <option value="Special Education">Special Education</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="STEM Education">STEM Education</option>
+                        <option value="Language Arts">Language Arts</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label for="rating-filter" class="sr-only">Filter by rating</label>
+                    <select id="rating-filter" name="min_rating" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by minimum rating">
+                        <option value="">Any Rating</option>
+                        <option value="4.5">4.5+ Stars</option>
+                        <option value="4.0">4.0+ Stars</option>
+                        <option value="3.5">3.5+ Stars</option>
+                        <option value="3.0">3.0+ Stars</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label for="sort-filter" class="sr-only">Sort trainers by</label>
+                    <select id="sort-filter" name="sort_by" class="form-control form-select" onchange="applyFilters()" title="Sort trainers by">
+                        <option value="rating">Highest Rated</option>
+                        <option value="name">Name A-Z</option>
+                        <option value="total_students">Most Students</option>
+                        <option value="experience_years">Most Experience</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-outline w-100" onclick="clearFilters()" title="Clear all filters" aria-label="Clear all filters">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Grid -->
+    <section class="trainers py-5">
+        <div class="container">
+            <!-- Results Info -->
+            <div class="d-flex justify-between align-center mb-4">
+                <div class="results-info">
+                    <span id="results-count">Loading trainers...</span>
+                </div>
+                
+                <div class="trainer-signup">
+                    <a href="trainer-signup.html" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Become a Trainer
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loading" class="text-center py-5">
+                <div class="spinner"></div>
+                <p class="mt-3">Loading trainers...</p>
+            </div>
+            
+            <!-- Trainers Container -->
+            <div id="trainers-results" class="grid grid-3">
+                <!-- Trainers will be loaded here via JavaScript -->
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="text-center mt-5">
+                <!-- Pagination will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Info -->
+    <section class="certification-info py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Trainer Certification Standards</h2>
+                <p>All our trainers meet rigorous certification requirements</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="cert-feature text-center">
+                    <div class="cert-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Advanced Degrees</h4>
+                    <p>Masters or higher in education or specialized fields</p>
+                </div>
+                
+                <div class="cert-feature text-center">
+                    <div class="cert-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4>Teaching Experience</h4>
+                    <p>Minimum 5 years of classroom or training experience</p>
+                </div>
+                
+                <div class="cert-feature text-center">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4>Professional Certifications</h4>
+                    <p>Industry-recognized teaching and training certifications</p>
+                </div>
+                
+                <div class="cert-feature text-center">
+                    <div class="cert-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Proven Results</h4>
+                    <p>Track record of successful student outcomes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EduMentor Pro</h3>
+                    <p>Empowering teachers worldwide with professional development programs.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="trainers.html">Find Trainers</a></li>
+                        <li><a href="certification.html">Get Certified</a></li>
+                        <li><a href="community.html">Join Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@edumentorpro.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Page-specific JavaScript
+        let currentPage = 0;
+        let currentFilters = {};
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTrainers();
+            setupSearch();
+        });
+        
+        async function loadTrainers(page = 0, filters = {}) {
+            try {
+                showLoading();
+                
+                const params = new URLSearchParams({
+                    page: page,
+                    limit: 12,
+                    ...filters
+                });
+                
+                const response = await EduMentor.Utils.ajax(`trainers?${params}`);
+                
+                if (response.success) {
+                    displayTrainers(response.data);
+                    updatePagination(response.total, page);
+                    updateResultsCount(response.total, page);
+                } else {
+                    showError('Failed to load trainers');
+                }
+                
+            } catch (error) {
+                showError('Error loading trainers: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+        
+        function displayTrainers(trainers) {
+            const container = document.getElementById('trainers-results');
+            
+            if (trainers.length === 0) {
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-user-friends fa-3x text-secondary mb-3"></i>
+                        <h3>No trainers found</h3>
+                        <p>Try adjusting your search criteria or filters</p>
+                        <button class="btn btn-primary" onclick="clearFilters()">Clear Filters</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = trainers.map(trainer => createTrainerCard(trainer)).join('');
+        }
+        
+        function createTrainerCard(trainer) {
+            return `
+                <div class="card trainer-card">
+                    <div class="card-body text-center">
+                        <img src="${trainer.profile_image || '../assets/images/trainer-placeholder.jpg'}" 
+                             alt="${trainer.first_name} ${trainer.last_name}" class="trainer-avatar mb-3">
+                        
+                        <h3 class="card-title">${trainer.first_name} ${trainer.last_name}</h3>
+                        <p class="trainer-expertise text-primary mb-2">${trainer.expertise || 'Education Expert'}</p>
+                        
+                        <div class="trainer-stats mb-3">
+                            <div class="stat-item">
+                                <span class="stat-value">★ ${trainer.rating || '4.5'}</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${trainer.total_students || 0}</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${trainer.courses_count || 0}</span>
+                                <span class="stat-label">Courses</span>
+                            </div>
+                        </div>
+                        
+                        <p class="trainer-bio">${trainer.bio ? trainer.bio.substring(0, 120) + '...' : 'Experienced educator dedicated to teacher development.'}</p>
+                        
+                        <div class="trainer-experience mb-3">
+                            <small class="text-secondary">
+                                <i class="fas fa-calendar"></i> ${trainer.experience_years || 5}+ years experience
+                            </small>
+                        </div>
+                        
+                        <div class="trainer-actions">
+                            <a href="trainer-profile.html?id=${trainer.id}" class="btn btn-primary">View Profile</a>
+                            <a href="courses.html?trainer_id=${trainer.user_id}" class="btn btn-outline btn-sm">View Courses</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function applyFilters() {
+            const filterInputs = document.querySelectorAll('[data-filter], select[name="sort_by"]');
+            const filters = {};
+            
+            filterInputs.forEach(input => {
+                if (input.value) {
+                    filters[input.name] = input.value;
+                }
+            });
+            
+            currentFilters = filters;
+            currentPage = 0;
+            
+            // Update URL with filters
+            EduMentor.Utils.updateUrlParams(filters);
+            
+            loadTrainers(currentPage, filters);
+        }
+        
+        function clearFilters() {
+            document.querySelectorAll('[data-filter], select[name="sort_by"]').forEach(input => {
+                if (input.name !== 'sort_by') {
+                    input.value = '';
+                } else {
+                    input.value = 'rating'; // Reset to default sort
+                }
+            });
+            
+            document.getElementById('trainer-search').value = '';
+            
+            currentFilters = {};
+            currentPage = 0;
+            
+            // Clear URL params
+            window.history.pushState({}, '', window.location.pathname);
+            
+            loadTrainers();
+        }
+        
+        function performSearch() {
+            const searchInput = document.getElementById('trainer-search');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                currentFilters.search = searchTerm;
+            } else {
+                delete currentFilters.search;
+            }
+            
+            currentPage = 0;
+            loadTrainers(currentPage, currentFilters);
+        }
+        
+        function setupSearch() {
+            const searchInput = document.getElementById('trainer-search');
+            const debouncedSearch = EduMentor.Utils.debounce(performSearch, 300);
+            
+            searchInput.addEventListener('input', debouncedSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+        }
+        
+        function updatePagination(total, currentPage) {
+            const totalPages = Math.ceil(total / 12);
+            const paginationContainer = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '<div class="pagination-buttons">';
+            
+            // Previous button
+            if (currentPage > 0) {
+                paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${currentPage - 1})">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>`;
+            }
+            
+            // Page numbers
+            for (let i = 0; i < totalPages; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<button class="btn btn-primary btn-sm">${i + 1}</button>`;
+                } else {
+                    paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${i})">${i + 1}</button>`;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages - 1) {
+                paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${currentPage + 1})">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>`;
+            }
+            
+            paginationHTML += '</div>';
+            paginationContainer.innerHTML = paginationHTML;
+        }
+        
+        function changePage(page) {
+            currentPage = page;
+            loadTrainers(page, currentFilters);
+            
+            // Scroll to top of trainers section
+            document.querySelector('.trainers').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
+        function updateResultsCount(total, page) {
+            const startItem = (page * 12) + 1;
+            const endItem = Math.min((page + 1) * 12, total);
+            
+            document.getElementById('results-count').textContent = 
+                `Showing ${startItem}-${endItem} of ${total} trainers`;
+        }
+        
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('trainers-results').style.display = 'none';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('trainers-results').style.display = 'grid';
+        }
+        
+        function showError(message) {
+            document.getElementById('trainers-results').innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                    <h3>Error Loading Trainers</h3>
+                    <p>${message}</p>
+                    <button class="btn btn-primary" onclick="loadTrainers()">Try Again</button>
+                </div>
+            `;
+        }
+        
+        // Load filters from URL on page load
+        window.addEventListener('load', function() {
+            const urlParams = EduMentor.Utils.getUrlParams();
+            
+            Object.keys(urlParams).forEach(key => {
+                const input = document.querySelector(`[name="${key}"]`);
+                if (input) {
+                    input.value = urlParams[key];
+                }
+            });
+            
+            if (Object.keys(urlParams).length > 0) {
+                currentFilters = urlParams;
+                loadTrainers(0, urlParams);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduMentor Pro - Empowering Teachers for Tomorrow</title>
+    <meta name="description" content="Professional teacher training platform with certified courses, expert trainers, and community support">
+    <meta name="keywords" content="teacher training, education, professional development, certification">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="trainers.html" class="nav-link">Trainers</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Empowering Teachers for Tomorrow</h1>
+            <p>Transform your teaching career with our comprehensive training programs, expert mentorship, and vibrant community of educators.</p>
+            
+            <div class="hero-buttons">
+                <a href="courses.html" class="btn btn-primary btn-lg">Explore Courses</a>
+                <a href="certification.html" class="btn btn-outline btn-lg">Get Certified</a>
+            </div>
+            
+            <!-- Quick Intro Video -->
+            <div class="hero-video mt-5">
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Watch our 2-minute introduction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats py-5 bg-light">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="stat-card text-center">
+                    <h3 class="text-primary">10,000+</h3>
+                    <p>Teachers Trained</p>
+                </div>
+                <div class="stat-card text-center">
+                    <h3 class="text-primary">150+</h3>
+                    <p>Expert Trainers</p>
+                </div>
+                <div class="stat-card text-center">
+                    <h3 class="text-primary">50+</h3>
+                    <p>Training Modules</p>
+                </div>
+                <div class="stat-card text-center">
+                    <h3 class="text-primary">95%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Why Choose EduMentor Pro?</h2>
+                <p class="text-secondary">Discover what makes us the preferred choice for teacher development</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Trainers</h3>
+                    <p>Learn from industry experts with proven teaching experience and professional certifications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Learning</h3>
+                    <p>Study at your own pace with our self-paced modules and live interactive sessions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Connect with fellow educators, share experiences, and grow together in our vibrant community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Recognition</h3>
+                    <p>Earn certificates and badges that are recognized by educational institutions worldwide.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Modern Technology</h3>
+                    <p>Access cutting-edge learning tools and resources designed for today's digital classroom.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our dedicated support team and comprehensive resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="featured-courses py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Featured Training Programs</h2>
+                <p class="text-secondary">Explore our most popular and highly-rated courses</p>
+            </div>
+            
+            <div class="grid grid-3" id="featured-courses">
+                <!-- Course cards will be loaded via JavaScript -->
+                <div class="card course-card">
+                    <img src="../assets/images/course-1.jpg" alt="Digital Teaching Methods" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Digital Teaching Methods</h3>
+                        <p class="card-text">Master modern digital tools and techniques for effective online and hybrid teaching.</p>
+                        <div class="course-meta">
+                            <span class="course-rating">★ 4.8</span>
+                            <span class="course-duration">12 hours</span>
+                            <span class="course-level badge badge-primary">Intermediate</span>
+                        </div>
+                        <a href="course-details.html?id=1" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card course-card">
+                    <img src="../assets/images/course-2.jpg" alt="Classroom Management" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Classroom Management Excellence</h3>
+                        <p class="card-text">Develop effective strategies for managing diverse classrooms and student behavior.</p>
+                        <div class="course-meta">
+                            <span class="course-rating">★ 4.9</span>
+                            <span class="course-duration">8 hours</span>
+                            <span class="course-level badge badge-primary">Beginner</span>
+                        </div>
+                        <a href="course-details.html?id=2" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card course-card">
+                    <img src="../assets/images/course-3.jpg" alt="Assessment Strategies" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Modern Assessment Strategies</h3>
+                        <p class="card-text">Learn innovative approaches to student assessment and performance evaluation.</p>
+                        <div class="course-meta">
+                            <span class="course-rating">★ 4.7</span>
+                            <span class="course-duration">10 hours</span>
+                            <span class="course-level badge badge-primary">Advanced</span>
+                        </div>
+                        <a href="course-details.html?id=3" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="courses.html" class="btn btn-outline btn-lg">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>What Our Teachers Say</h2>
+                <p class="text-secondary">Real feedback from educators who transformed their careers with us</p>
+            </div>
+            
+            <div class="grid grid-3" id="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating mb-3">
+                        ★★★★★
+                    </div>
+                    <p>"EduMentor Pro completely transformed my teaching approach. The digital methods course was exactly what I needed to engage my students in the virtual classroom."</p>
+                    <div class="testimonial-author">
+                        <img src="../assets/images/teacher-1.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                        <div>
+                            <strong>Sarah Johnson</strong>
+                            <div class="text-secondary">High School Math Teacher</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating mb-3">
+                        ★★★★★
+                    </div>
+                    <p>"The certification program gave me the credentials I needed to advance my career. The trainers were knowledgeable and the content was practical."</p>
+                    <div class="testimonial-author">
+                        <img src="../assets/images/teacher-2.jpg" alt="Michael Chen" class="testimonial-avatar">
+                        <div>
+                            <strong>Michael Chen</strong>
+                            <div class="text-secondary">Elementary Teacher</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating mb-3">
+                        ★★★★★
+                    </div>
+                    <p>"The community aspect is amazing. I've connected with teachers from around the world and learned so much from their experiences."</p>
+                    <div class="testimonial-author">
+                        <img src="../assets/images/teacher-3.jpg" alt="Emily Rodriguez" class="testimonial-avatar">
+                        <div>
+                            <strong>Emily Rodriguez</strong>
+                            <div class="text-secondary">Language Arts Teacher</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2>Stay Updated with EduMentor Pro</h2>
+            <p class="mb-4">Get the latest teaching tips, course updates, and educational insights delivered to your inbox.</p>
+            
+            <form class="newsletter-form" data-ajax="true" action="newsletter/subscribe" method="POST">
+                <div class="d-flex gap-2">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-secondary" data-original-text="Subscribe">Subscribe</button>
+                </div>
+                <div class="form-check mt-3">
+                    <input type="checkbox" id="newsletter-consent" name="consent" class="form-check-input" required>
+                    <label for="newsletter-consent" class="form-check-label">
+                        I agree to receive educational content and updates via email
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta py-5">
+        <div class="container text-center">
+            <h2>Ready to Transform Your Teaching Career?</h2>
+            <p class="text-secondary mb-4">Join thousands of educators who have already taken their teaching to the next level.</p>
+            
+            <div class="cta-buttons">
+                <a href="register.html" class="btn btn-primary btn-lg">Start Learning Today</a>
+                <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EduMentor Pro</h3>
+                    <p>Empowering teachers worldwide with professional development programs and community support.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-secondary" title="Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-secondary" title="Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-secondary" title="LinkedIn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-secondary" title="YouTube" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="trainers.html">Find Trainers</a></li>
+                        <li><a href="certification.html">Get Certified</a></li>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="blog.html">Read Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@edumentorpro.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, LC 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Page-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load featured courses
+            loadFeaturedCourses();
+            
+            // Setup testimonials slider
+            setupTestimonialsSlider();
+            
+            // Setup newsletter form
+            setupNewsletterForm();
+        });
+
+        async function loadFeaturedCourses() {
+            try {
+                const response = await EduMentor.Utils.ajax('courses/featured');
+                if (response.success && response.data.length > 0) {
+                    displayFeaturedCourses(response.data);
+                }
+            } catch (error) {
+                console.error('Failed to load featured courses:', error);
+            }
+        }
+
+        function displayFeaturedCourses(courses) {
+            const container = document.getElementById('featured-courses');
+            container.innerHTML = courses.map(course => `
+                <div class="card course-card">
+                    <img src="${course.image || '../assets/images/course-placeholder.jpg'}" alt="${course.title}" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">${course.title}</h3>
+                        <p class="card-text">${course.short_description}</p>
+                        <div class="course-meta">
+                            <span class="course-rating">★ ${course.rating}</span>
+                            <span class="course-duration">${course.duration} hours</span>
+                            <span class="course-level badge badge-primary">${course.level}</span>
+                        </div>
+                        <a href="course-details.html?id=${course.id}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupTestimonialsSlider() {
+            // Simple testimonials rotation (can be enhanced with a proper slider library)
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentIndex = 0;
+
+            function showTestimonials() {
+                testimonials.forEach((testimonial, index) => {
+                    testimonial.style.display = index < 3 ? 'block' : 'none';
+                });
+            }
+
+            showTestimonials();
+        }
+
+        function setupNewsletterForm() {
+            const form = document.querySelector('.newsletter-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(form);
+                    const email = formData.get('email');
+                    const consent = formData.get('consent');
+
+                    if (!consent) {
+                        EduMentor.Utils.showAlert('Please agree to receive emails', 'warning');
+                        return;
+                    }
+
+                    try {
+                        const response = await EduMentor.Utils.ajax('newsletter/subscribe', {
+                            method: 'POST',
+                            body: JSON.stringify({ email: email })
+                        });
+
+                        EduMentor.Utils.showAlert('Successfully subscribed to newsletter!', 'success');
+                        form.reset();
+                    } catch (error) {
+                        EduMentor.Utils.showAlert('Failed to subscribe. Please try again.', 'danger');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

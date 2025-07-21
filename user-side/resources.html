@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Resources - EduMentor Pro</title>
+    <meta name="description" content="Download free teaching resources, templates, worksheets, and materials to enhance your classroom instruction">
+    <meta name="keywords" content="teaching resources, lesson plans, worksheets, templates, educational materials">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Search-specific styles */
+        .no-results-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .no-results-content i {
+            font-size: 48px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .no-results-content h3 {
+            color: #343a40;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .no-results-content p {
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .hero-search-input, .form-control {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 2px solid #e9ecef !important;
+            transition: all 0.3s ease !important;
+            color: #212529 !important; /* Ensure text is dark and visible */
+        }
+        
+        .hero-search-input::placeholder, .form-control::placeholder {
+            color: rgba(33, 37, 41, 0.6) !important; /* Dark placeholder text */
+        }
+        
+        .hero-search-input:focus, .form-control:focus {
+            outline: none !important;
+            border-color: #007bff !important;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+        }
+        
+        .search-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-submit-btn, .search-btn {
+            background: #007bff !important;
+            border: none !important;
+            color: white !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .search-submit-btn:hover, .search-btn:hover {
+            background: #0056b3 !important;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="trainers.html" class="nav-link">Trainers</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="resources.html" class="nav-link active">Resources</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header bg-gradient">
+        <div class="container">
+            <div class="page-header-content text-center text-white">
+                <div class="page-header-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h1>Teaching Resources Library</h1>
+                <p class="page-subtitle">Access thousands of free and premium teaching resources, lesson plans, templates, and educational materials created by expert educators worldwide.</p>
+                
+                <!-- Enhanced Resource Search -->
+                <div class="hero-search">
+                    <div class="search-container">
+                        <div class="search-input-group">
+                            <div class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" id="heroResourceSearch" class="hero-search-input" placeholder="Search lesson plans, worksheets, templates...">
+                            <button type="button" class="search-submit-btn" aria-label="Search resources">
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="search-suggestions">
+                            <span class="suggestion-tag">Lesson Plans</span>
+                            <span class="suggestion-tag">Worksheets</span>
+                            <span class="suggestion-tag">Templates</span>
+                            <span class="suggestion-tag">Assessment Tools</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-header-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">2,500+</span>
+                            <span class="stat-label">Resources</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">100K+</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">4.9/5</span>
+                            <span class="stat-label">Avg Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+                <div class="page-header-search">
+                    <div class="search-box large">
+                        <input type="text" id="resourceSearch" class="form-control" placeholder="Search for lesson plans, worksheets, templates...">
+                        <button type="button" class="search-btn" aria-label="Search resources">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="page-header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Resources</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">150K+</span>
+                        <span class="stat-label">Downloads</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-label">For Members</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Resources -->
+    <section class="featured-resources py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Featured This Week</h2>
+                <p class="text-secondary">Hand-picked resources from our education experts</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="resource-card featured">
+                    <div class="resource-image">
+                        <img src="../assets/images/resource-featured-1.jpg" alt="Complete Lesson Plan Template" loading="lazy">
+                        <div class="resource-badge featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-type">
+                            <i class="fas fa-file-alt"></i> Template
+                        </div>
+                        <h3>Complete Lesson Plan Template Pack</h3>
+                        <p>Comprehensive collection of lesson plan templates for all grade levels and subjects. Includes assessment rubrics and reflection sheets.</p>
+                        <div class="resource-meta">
+                            <span class="resource-grade">K-12</span>
+                            <span class="resource-subject">All Subjects</span>
+                            <span class="resource-size">2.5 MB</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="download-count"><i class="fas fa-download"></i> 1,234 downloads</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.9 (87 reviews)</span>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn btn-primary download-btn" data-resource-id="featured-1">
+                                <i class="fas fa-download"></i> Download Free
+                            </button>
+                            <button class="btn btn-outline favorite-btn" data-resource-id="featured-1" aria-label="Add to favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card featured">
+                    <div class="resource-image">
+                        <img src="../assets/images/resource-featured-2.jpg" alt="Interactive Math Worksheets" loading="lazy">
+                        <div class="resource-badge featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-type">
+                            <i class="fas fa-calculator"></i> Worksheet
+                        </div>
+                        <h3>Interactive Math Worksheets - Grade 3-5</h3>
+                        <p>Engaging math practice worksheets with visual elements and problem-solving activities designed to make learning fun.</p>
+                        <div class="resource-meta">
+                            <span class="resource-grade">3-5</span>
+                            <span class="resource-subject">Mathematics</span>
+                            <span class="resource-size">1.8 MB</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="download-count"><i class="fas fa-download"></i> 892 downloads</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.8 (65 reviews)</span>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn btn-primary download-btn" data-resource-id="featured-2">
+                                <i class="fas fa-download"></i> Download Free
+                            </button>
+                            <button class="btn btn-outline favorite-btn" data-resource-id="featured-2" aria-label="Add to favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card featured">
+                    <div class="resource-image">
+                        <img src="../assets/images/resource-featured-3.jpg" alt="Classroom Management Toolkit" loading="lazy">
+                        <div class="resource-badge featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-type">
+                            <i class="fas fa-toolbox"></i> Toolkit
+                        </div>
+                        <h3>Digital Classroom Management Toolkit</h3>
+                        <p>Complete toolkit with behavior charts, reward systems, communication templates, and classroom rules posters.</p>
+                        <div class="resource-meta">
+                            <span class="resource-grade">K-8</span>
+                            <span class="resource-subject">Management</span>
+                            <span class="resource-size">3.2 MB</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="download-count"><i class="fas fa-download"></i> 756 downloads</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.9 (92 reviews)</span>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn btn-primary download-btn" data-resource-id="featured-3">
+                                <i class="fas fa-download"></i> Download Free
+                            </button>
+                            <button class="btn btn-outline favorite-btn" data-resource-id="featured-3" aria-label="Add to favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Browser -->
+    <section class="resources-browser py-5">
+        <div class="container">
+            <div class="resources-layout">
+                <!-- Filters Sidebar -->
+                <aside class="resources-filters">
+                    <div class="filter-header">
+                        <h3>Filter Resources</h3>
+                        <button type="button" class="btn btn-link clear-filters" id="clearFilters">Clear All</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Resource Type</h4>
+                        <div class="checkbox-group">
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="lesson-plans" class="form-check-input">
+                                <span class="form-check-label">Lesson Plans (485)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="worksheets" class="form-check-input">
+                                <span class="form-check-label">Worksheets (523)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="templates" class="form-check-input">
+                                <span class="form-check-label">Templates (234)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="activities" class="form-check-input">
+                                <span class="form-check-label">Activities (398)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="assessments" class="form-check-input">
+                                <span class="form-check-label">Assessments (187)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="type" value="presentations" class="form-check-input">
+                                <span class="form-check-label">Presentations (156)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Grade Level</h4>
+                        <div class="checkbox-group">
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="pre-k" class="form-check-input">
+                                <span class="form-check-label">Pre-K (89)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="k-2" class="form-check-input">
+                                <span class="form-check-label">K-2 (345)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="3-5" class="form-check-input">
+                                <span class="form-check-label">3-5 (412)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="6-8" class="form-check-input">
+                                <span class="form-check-label">6-8 (298)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="9-12" class="form-check-input">
+                                <span class="form-check-label">9-12 (267)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="grade" value="adult" class="form-check-input">
+                                <span class="form-check-label">Adult Ed (67)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Subject</h4>
+                        <div class="checkbox-group">
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="mathematics" class="form-check-input">
+                                <span class="form-check-label">Mathematics (456)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="english" class="form-check-input">
+                                <span class="form-check-label">English/Language Arts (523)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="science" class="form-check-input">
+                                <span class="form-check-label">Science (398)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="social-studies" class="form-check-input">
+                                <span class="form-check-label">Social Studies (234)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="arts" class="form-check-input">
+                                <span class="form-check-label">Arts & Music (156)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="physical-education" class="form-check-input">
+                                <span class="form-check-label">Physical Education (89)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="subject" value="special-education" class="form-check-input">
+                                <span class="form-check-label">Special Education (167)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>File Format</h4>
+                        <div class="checkbox-group">
+                            <label class="form-check">
+                                <input type="checkbox" name="format" value="pdf" class="form-check-input">
+                                <span class="form-check-label">PDF (1,234)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="format" value="docx" class="form-check-input">
+                                <span class="form-check-label">Word Document (456)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="format" value="pptx" class="form-check-input">
+                                <span class="form-check-label">PowerPoint (234)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="format" value="xlsx" class="form-check-input">
+                                <span class="form-check-label">Excel (123)</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="checkbox" name="format" value="zip" class="form-check-input">
+                                <span class="form-check-label">Resource Pack (89)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Price</h4>
+                        <div class="radio-group">
+                            <label class="form-check">
+                                <input type="radio" name="price" value="all" class="form-check-input" checked>
+                                <span class="form-check-label">All Resources</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="radio" name="price" value="free" class="form-check-input">
+                                <span class="form-check-label">Free Only</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="radio" name="price" value="premium" class="form-check-input">
+                                <span class="form-check-label">Premium Only</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Resources Content -->
+                <div class="resources-main">
+                    <!-- Results Header -->
+                    <div class="resources-header">
+                        <div class="results-info">
+                            <h2>Teaching Resources</h2>
+                            <span class="results-count" id="resourcesCount">Showing 1-20 of 2,487 resources</span>
+                        </div>
+                        
+                        <div class="resources-controls">
+                            <select id="sortResources" class="form-control" aria-label="Sort resources">
+                                <option value="latest">Newest First</option>
+                                <option value="popular">Most Popular</option>
+                                <option value="downloads">Most Downloads</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="title">A-Z</option>
+                            </select>
+
+                            <div class="view-toggle">
+                                <button type="button" class="view-btn active" data-view="grid" aria-label="Grid view">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button type="button" class="view-btn" data-view="list" aria-label="List view">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources Grid -->
+                    <div class="resources-grid" id="resourcesGrid">
+                        <!-- Sample Resource Cards -->
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-1.jpg" alt="Reading Comprehension Worksheets" loading="lazy">
+                                <div class="resource-badge free-badge">Free</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-file-text"></i> Worksheet
+                                </div>
+                                <h3>Reading Comprehension Worksheets - Grade 4</h3>
+                                <p>Collection of 15 reading passages with comprehension questions designed to improve reading skills.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">Grade 4</span>
+                                    <span class="resource-subject">English</span>
+                                    <span class="resource-size">1.2 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 456 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.7 (23 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="1">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="1" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-2.jpg" alt="Science Experiment Lab Sheets" loading="lazy">
+                                <div class="resource-badge premium-badge">Premium</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-flask"></i> Lab Sheet
+                                </div>
+                                <h3>Science Experiment Lab Sheets - Grade 6-8</h3>
+                                <p>Interactive lab sheets for 20 hands-on science experiments with detailed procedures and analysis questions.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">6-8</span>
+                                    <span class="resource-subject">Science</span>
+                                    <span class="resource-size">2.8 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 234 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.9 (34 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="2">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="2" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-3.jpg" alt="Math Problem Solving Activities" loading="lazy">
+                                <div class="resource-badge free-badge">Free</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-calculator"></i> Activity
+                                </div>
+                                <h3>Math Problem Solving Activities - Grade 3</h3>
+                                <p>Fun and engaging math activities that develop critical thinking and problem-solving skills.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">Grade 3</span>
+                                    <span class="resource-subject">Mathematics</span>
+                                    <span class="resource-size">1.5 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 678 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.6 (45 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="3">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="3" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-4.jpg" alt="Social Studies Research Project" loading="lazy">
+                                <div class="resource-badge free-badge">Free</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-globe"></i> Project
+                                </div>
+                                <h3>Social Studies Research Project Template</h3>
+                                <p>Complete project template with research guidelines, rubric, and presentation format for history topics.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">9-12</span>
+                                    <span class="resource-subject">Social Studies</span>
+                                    <span class="resource-size">0.8 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 345 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.8 (19 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="4">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="4" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-5.jpg" alt="Classroom Bulletin Board Ideas" loading="lazy">
+                                <div class="resource-badge free-badge">Free</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-palette"></i> Template
+                                </div>
+                                <h3>Seasonal Bulletin Board Ideas & Templates</h3>
+                                <p>Creative bulletin board designs for every season with printable templates and setup instructions.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">K-5</span>
+                                    <span class="resource-subject">All Subjects</span>
+                                    <span class="resource-size">3.4 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 892 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.9 (67 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="5">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="5" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="../assets/images/resource-6.jpg" alt="Parent Communication Templates" loading="lazy">
+                                <div class="resource-badge premium-badge">Premium</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-type">
+                                    <i class="fas fa-envelope"></i> Template
+                                </div>
+                                <h3>Parent Communication Email Templates</h3>
+                                <p>Professional email templates for various parent communication scenarios including progress updates and concerns.</p>
+                                <div class="resource-meta">
+                                    <span class="resource-grade">K-12</span>
+                                    <span class="resource-subject">Communication</span>
+                                    <span class="resource-size">0.5 MB</span>
+                                </div>
+                                <div class="resource-stats">
+                                    <span class="download-count"><i class="fas fa-download"></i> 567 downloads</span>
+                                    <span class="rating"><i class="fas fa-star"></i> 4.7 (28 reviews)</span>
+                                </div>
+                                <div class="resource-actions">
+                                    <button class="btn btn-primary download-btn" data-resource-id="6">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline favorite-btn" data-resource-id="6" aria-label="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <nav class="pagination" aria-label="Resources pagination">
+                            <button class="pagination-btn prev" disabled aria-label="Previous page">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <div class="pagination-numbers">
+                                <button class="pagination-number active">1</button>
+                                <button class="pagination-number">2</button>
+                                <button class="pagination-number">3</button>
+                                <span class="pagination-ellipsis">...</span>
+                                <button class="pagination-number">25</button>
+                            </div>
+                            <button class="pagination-btn next" aria-label="Next page">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Resource CTA -->
+    <section class="upload-cta py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2>Share Your Teaching Resources</h2>
+            <p>Help fellow educators by sharing your original teaching materials and resources with our community.</p>
+            <div class="cta-buttons">
+                <a href="upload-resource.html" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-upload"></i> Upload Resource
+                </a>
+                <a href="resource-guidelines.html" class="btn btn-outline-light btn-lg">
+                    View Guidelines
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EduMentor Pro</h3>
+                    <p>Empowering teachers worldwide with professional development programs and community support.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-secondary" title="Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-secondary" title="Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-secondary" title="LinkedIn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-secondary" title="YouTube" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="trainers.html">Find Trainers</a></li>
+                        <li><a href="certification.html">Get Certified</a></li>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="blog.html">Read Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@edumentorpro.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, LC 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupResourceSearch();
+            setupResourceFilters();
+            setupResourceActions();
+            setupViewToggle();
+            setupPagination();
+        });
+
+        function setupResourceSearch() {
+            const heroSearchInput = document.getElementById('heroResourceSearch');
+            const resourceSearchInput = document.getElementById('resourceSearch');
+            const searchBtn = document.querySelector('.search-btn');
+            const heroSearchBtn = document.querySelector('.search-submit-btn');
+            
+            // Hero search functionality
+            if (heroSearchInput) {
+                let heroSearchTimeout;
+                heroSearchInput.addEventListener('input', function() {
+                    clearTimeout(heroSearchTimeout);
+                    heroSearchTimeout = setTimeout(() => {
+                        performResourceSearch(this.value);
+                    }, 300);
+                });
+
+                heroSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performResourceSearch(this.value);
+                    }
+                });
+            }
+
+            if (heroSearchBtn) {
+                heroSearchBtn.addEventListener('click', function() {
+                    performResourceSearch(heroSearchInput.value);
+                });
+            }
+
+            // Resource section search functionality
+            if (resourceSearchInput) {
+                let searchTimeout;
+                resourceSearchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        performResourceSearch(this.value);
+                    }, 300);
+                });
+
+                resourceSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performResourceSearch(this.value);
+                    }
+                });
+            }
+
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    performResourceSearch(resourceSearchInput.value);
+                });
+            }
+
+            // Sync search inputs
+            if (heroSearchInput && resourceSearchInput) {
+                heroSearchInput.addEventListener('input', function() {
+                    resourceSearchInput.value = this.value;
+                });
+                
+                resourceSearchInput.addEventListener('input', function() {
+                    heroSearchInput.value = this.value;
+                });
+            }
+        }
+
+        function setupResourceFilters() {
+            const filterInputs = document.querySelectorAll('.resources-filters input');
+            const sortSelect = document.getElementById('sortResources');
+            const clearFiltersBtn = document.getElementById('clearFilters');
+
+            filterInputs.forEach(input => {
+                input.addEventListener('change', applyResourceFilters);
+            });
+
+            sortSelect.addEventListener('change', applyResourceFilters);
+
+            clearFiltersBtn.addEventListener('click', function() {
+                filterInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        input.checked = false;
+                    } else if (input.type === 'radio' && input.value === 'all') {
+                        input.checked = true;
+                    } else if (input.type === 'radio') {
+                        input.checked = false;
+                    }
+                });
+                sortSelect.value = 'latest';
+                applyResourceFilters();
+            });
+        }
+
+        function setupResourceActions() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.download-btn')) {
+                    handleResourceDownload(e.target.closest('.download-btn'));
+                } else if (e.target.closest('.favorite-btn')) {
+                    handleResourceFavorite(e.target.closest('.favorite-btn'));
+                }
+            });
+        }
+
+        function setupViewToggle() {
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const resourcesGrid = document.getElementById('resourcesGrid');
+
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const view = this.dataset.view;
+                    resourcesGrid.className = view === 'list' ? 'resources-list' : 'resources-grid';
+                });
+            });
+        }
+
+        function setupPagination() {
+            const paginationBtns = document.querySelectorAll('.pagination-number, .pagination-btn');
+            
+            paginationBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.disabled) return;
+                    
+                    // Update active state for numbers
+                    if (this.classList.contains('pagination-number')) {
+                        document.querySelectorAll('.pagination-number').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                    
+                    // Load page content
+                    const page = this.textContent.trim() || 1;
+                    loadResourcesPage(page);
+                });
+            });
+        }
+
+        async function performResourceSearch(query) {
+            console.log('Searching resources for:', query);
+            
+            if (!query || query.trim() === '') {
+                // Show all resources if search is empty
+                showAllResources();
+                return;
+            }
+
+            try {
+                // For now, implement client-side search
+                const resourceCards = document.querySelectorAll('.resource-card');
+                let visibleCount = 0;
+                
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+                    const category = card.querySelector('.resource-meta')?.textContent.toLowerCase() || '';
+                    
+                    const searchLower = query.toLowerCase();
+                    const isMatch = title.includes(searchLower) || 
+                                  description.includes(searchLower) || 
+                                  category.includes(searchLower);
+                    
+                    if (isMatch) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update results count
+                updateResourcesCount(visibleCount, resourceCards.length);
+                
+                // Show no results message if needed
+                showNoResourcesMessage(visibleCount === 0, query);
+
+            } catch (error) {
+                console.error('Resource search failed:', error);
+            }
+        }
+
+        function showAllResources() {
+            const resourceCards = document.querySelectorAll('.resource-card');
+            resourceCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            updateResourcesCount(resourceCards.length, resourceCards.length);
+            hideNoResourcesMessage();
+        }
+
+        function showNoResourcesMessage(show, query) {
+            let noResultsDiv = document.getElementById('noResourceResults');
+            
+            if (show) {
+                if (!noResultsDiv) {
+                    noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noResourceResults';
+                    noResultsDiv.className = 'no-results-message';
+                    noResultsDiv.innerHTML = `
+                        <div class="no-results-content">
+                            <i class="fas fa-search"></i>
+                            <h3>No resources found</h3>
+                            <p>We couldn't find any resources matching "<strong>${query}</strong>"</p>
+                            <p>Try different keywords or browse our categories.</p>
+                        </div>
+                    `;
+                    const resourcesGrid = document.querySelector('.resources-grid');
+                    if (resourcesGrid) {
+                        resourcesGrid.appendChild(noResultsDiv);
+                    }
+                }
+                noResultsDiv.style.display = 'block';
+            } else {
+                hideNoResourcesMessage();
+            }
+        }
+
+        function hideNoResourcesMessage() {
+            const noResultsDiv = document.getElementById('noResourceResults');
+            if (noResultsDiv) {
+                noResultsDiv.style.display = 'none';
+            }
+        }
+
+        function updateResourcesCount(showing, total) {
+            const countElement = document.querySelector('.results-count');
+            if (countElement) {
+                countElement.textContent = `Showing ${showing} of ${total} resources`;
+            }
+        }
+
+        async function applyResourceFilters() {
+            const filters = {
+                type: Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value),
+                grade: Array.from(document.querySelectorAll('input[name="grade"]:checked')).map(cb => cb.value),
+                subject: Array.from(document.querySelectorAll('input[name="subject"]:checked')).map(cb => cb.value),
+                format: Array.from(document.querySelectorAll('input[name="format"]:checked')).map(cb => cb.value),
+                price: document.querySelector('input[name="price"]:checked')?.value,
+                sort: document.getElementById('sortResources').value
+            };
+
+            try {
+                const params = new URLSearchParams();
+                Object.entries(filters).forEach(([key, value]) => {
+                    if (Array.isArray(value) && value.length > 0) {
+                        params.append(key, value.join(','));
+                    } else if (value && !Array.isArray(value)) {
+                        params.append(key, value);
+                    }
+                });
+
+                const response = await EduMentor.Utils.ajax(`resources?${params.toString()}`);
+                if (response.success) {
+                    displayResources(response.data);
+                    updateResourcesCount(response.data.length, response.total);
+                }
+            } catch (error) {
+                console.error('Filter application failed:', error);
+            }
+        }
+
+        async function handleResourceDownload(btn) {
+            const resourceId = btn.dataset.resourceId;
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+
+            try {
+                const response = await EduMentor.Utils.ajax(`resources/${resourceId}/download`, {
+                    method: 'POST'
+                });
+
+                if (response.success) {
+                    // Trigger download
+                    const link = document.createElement('a');
+                    link.href = response.data.downloadUrl;
+                    link.download = response.data.filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    // Update download count
+                    const countSpan = btn.closest('.resource-card').querySelector('.download-count');
+                    const currentCount = parseInt(countSpan.textContent.match(/\d+/)[0]);
+                    countSpan.innerHTML = `<i class="fas fa-download"></i> ${currentCount + 1} downloads`;
+
+                    EduMentor.Utils.showAlert('Resource downloaded successfully!', 'success');
+                } else {
+                    EduMentor.Utils.showAlert(response.message || 'Download failed', 'danger');
+                }
+            } catch (error) {
+                EduMentor.Utils.showAlert('Download failed. Please try again.', 'danger');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        function handleResourceFavorite(btn) {
+            const resourceId = btn.dataset.resourceId;
+            const icon = btn.querySelector('i');
+            const isFavorited = icon.classList.contains('fas');
+
+            // Toggle visual state
+            if (isFavorited) {
+                icon.className = 'far fa-heart';
+                btn.classList.remove('favorited');
+                EduMentor.Utils.showAlert('Removed from favorites', 'info');
+            } else {
+                icon.className = 'fas fa-heart';
+                btn.classList.add('favorited');
+                EduMentor.Utils.showAlert('Added to favorites', 'success');
+            }
+
+            // Send to server
+            EduMentor.Utils.ajax(`resources/${resourceId}/favorite`, {
+                method: 'POST',
+                body: JSON.stringify({ action: isFavorited ? 'unfavorite' : 'favorite' })
+            }).catch(error => {
+                // Revert on error
+                if (isFavorited) {
+                    icon.className = 'fas fa-heart';
+                    btn.classList.add('favorited');
+                } else {
+                    icon.className = 'far fa-heart';
+                    btn.classList.remove('favorited');
+                }
+                EduMentor.Utils.showAlert('Failed to update favorites', 'danger');
+            });
+        }
+
+        async function loadResourcesPage(page) {
+            try {
+                const response = await EduMentor.Utils.ajax(`resources?page=${page}`);
+                if (response.success) {
+                    displayResources(response.data);
+                    updateResourcesCount(response.data.length, response.total);
+                }
+            } catch (error) {
+                console.error('Failed to load page:', error);
+            }
+        }
+
+        function displayResources(resources) {
+            const grid = document.getElementById('resourcesGrid');
+            grid.innerHTML = resources.map(resource => createResourceCard(resource)).join('');
+        }
+
+        function createResourceCard(resource) {
+            return `
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="${resource.image}" alt="${resource.title}" loading="lazy">
+                        <div class="resource-badge ${resource.price === 'free' ? 'free-badge' : 'premium-badge'}">
+                            ${resource.price === 'free' ? 'Free' : 'Premium'}
+                        </div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-type">
+                            <i class="${resource.typeIcon}"></i> ${resource.type}
+                        </div>
+                        <h3>${resource.title}</h3>
+                        <p>${resource.description}</p>
+                        <div class="resource-meta">
+                            <span class="resource-grade">${resource.grade}</span>
+                            <span class="resource-subject">${resource.subject}</span>
+                            <span class="resource-size">${resource.size}</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="download-count"><i class="fas fa-download"></i> ${resource.downloads} downloads</span>
+                            <span class="rating"><i class="fas fa-star"></i> ${resource.rating} (${resource.reviews} reviews)</span>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn btn-primary download-btn" data-resource-id="${resource.id}">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn btn-outline favorite-btn" data-resource-id="${resource.id}" aria-label="Add to favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateResourcesCount(showing, total) {
+            const countElement = document.getElementById('resourcesCount');
+            countElement.textContent = `Showing 1-${showing} of ${total} resources`;
+        }
+    </script>
+</body>
+</html>

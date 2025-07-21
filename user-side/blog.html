@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Blog - EduMentor Pro</title>
+    <meta name="description" content="Discover the latest teaching strategies, educational trends, and professional development insights from our expert educators">
+    <meta name="keywords" content="education blog, teaching tips, professional development, classroom strategies">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Search-specific styles */
+        .no-results-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .no-results-content i {
+            font-size: 48px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .no-results-content h3 {
+            color: #343a40;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .no-results-content p {
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .hero-search-input, .form-control {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 2px solid #e9ecef !important;
+            transition: all 0.3s ease !important;
+            color: #212529 !important; /* Ensure text is dark and visible */
+        }
+        
+        .hero-search-input::placeholder, .form-control::placeholder {
+            color: rgba(33, 37, 41, 0.6) !important; /* Dark placeholder text */
+        }
+        
+        .hero-search-input:focus, .form-control:focus {
+            outline: none !important;
+            border-color: #007bff !important;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+        }
+        
+        .search-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-submit-btn, .search-btn {
+            background: #007bff !important;
+            border: none !important;
+            color: white !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .search-submit-btn:hover, .search-btn:hover {
+            background: #0056b3 !important;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="trainers.html" class="nav-link">Trainers</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header bg-gradient">
+        <div class="container">
+            <div class="page-header-content text-center text-white">
+                <div class="page-header-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h1>Educational Insights & Tips</h1>
+                <p class="page-subtitle">Stay updated with the latest teaching strategies, educational trends, and professional development insights from our expert educators and community.</p>
+                
+                <!-- Enhanced Search Bar -->
+                <div class="hero-search">
+                    <div class="search-container">
+                        <div class="search-input-group">
+                            <div class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" id="heroSearch" class="hero-search-input" placeholder="Search articles, topics, or authors...">
+                            <button type="button" class="search-submit-btn" aria-label="Search articles">
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="search-suggestions">
+                            <span class="suggestion-tag">Classroom Management</span>
+                            <span class="suggestion-tag">Digital Tools</span>
+                            <span class="suggestion-tag">Assessment</span>
+                            <span class="suggestion-tag">Student Engagement</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-header-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Articles</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Expert Authors</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Monthly Readers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-section py-5">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Content -->
+                <div class="blog-main">
+                    <!-- Search and Filters -->
+                    <div class="blog-controls">
+                        <div class="search-wrapper">
+                            <div class="search-box">
+                                <input type="text" id="blogSearch" class="form-control" placeholder="Search articles, topics, authors...">
+                                <button type="button" class="search-btn" aria-label="Search blog posts">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="filter-controls">
+                            <label for="categoryFilter" class="sr-only">Filter by category</label>
+                            <select id="categoryFilter" class="form-control" aria-label="Filter by category">
+                                <option value="">All Categories</option>
+                                <option value="classroom-management">Classroom Management</option>
+                                <option value="digital-tools">Digital Tools</option>
+                                <option value="assessment">Assessment & Evaluation</option>
+                                <option value="professional-development">Professional Development</option>
+                                <option value="special-education">Special Education</option>
+                                <option value="curriculum-design">Curriculum Design</option>
+                                <option value="student-engagement">Student Engagement</option>
+                                <option value="educational-technology">Educational Technology</option>
+                            </select>
+
+                            <label for="sortFilter" class="sr-only">Sort articles</label>
+                            <select id="sortFilter" class="form-control" aria-label="Sort articles">
+                                <option value="latest">Latest Posts</option>
+                                <option value="popular">Most Popular</option>
+                                <option value="trending">Trending</option>
+                                <option value="alphabetical">A-Z</option>
+                            </select>
+
+                            <div class="view-toggle">
+                                <button type="button" class="view-btn active" data-view="grid" aria-label="Grid view">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button type="button" class="view-btn" data-view="list" aria-label="List view">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Article -->
+                    <div class="featured-article">
+                        <div class="featured-badge">
+                            <i class="fas fa-star"></i> Featured Article
+                        </div>
+                        <article class="article-card featured">
+                            <div class="article-image">
+                                <img src="../assets/images/featured-blog.jpg" alt="The Future of Digital Learning" loading="lazy">
+                                <div class="article-category">Educational Technology</div>
+                            </div>
+                            <div class="article-content">
+                                <h2><a href="blog-post.html?id=featured">The Future of Digital Learning: Preparing Students for Tomorrow</a></h2>
+                                <p class="article-excerpt">Explore how emerging technologies are reshaping education and what teachers need to know to prepare their students for the digital future. From AI-powered learning tools to virtual reality classrooms...</p>
+                                <div class="article-meta">
+                                    <div class="author-info">
+                                        <img src="../assets/images/author-1.jpg" alt="Dr. Sarah Chen" class="author-avatar">
+                                        <div class="author-details">
+                                            <span class="author-name">Dr. Sarah Chen</span>
+                                            <span class="author-title">Educational Technology Expert</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-stats">
+                                        <span class="article-date"><i class="fas fa-calendar"></i> Jan 15, 2025</span>
+                                        <span class="read-time"><i class="fas fa-clock"></i> 8 min read</span>
+                                        <span class="article-views"><i class="fas fa-eye"></i> 2.3k views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Blog Posts Grid -->
+                    <div class="blog-results">
+                        <div class="results-header">
+                            <h3>Latest Articles</h3>
+                            <span class="results-count" id="resultsCount">Showing 1-12 of 156 articles</span>
+                        </div>
+
+                        <div class="blog-grid" id="blogGrid">
+                            <!-- Blog posts will be loaded here via JavaScript -->
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-1.jpg" alt="Effective Classroom Management" loading="lazy">
+                                    <div class="article-category">Classroom Management</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=1">10 Proven Strategies for Effective Classroom Management</a></h3>
+                                    <p class="article-excerpt">Discover practical techniques that experienced teachers use to create positive learning environments and manage student behavior effectively.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-2.jpg" alt="Michael Rodriguez" class="author-avatar">
+                                            <span class="author-name">Michael Rodriguez</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Jan 10, 2025</span>
+                                            <span class="read-time">5 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="1">
+                                            <i class="fas fa-heart"></i> <span>24</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>8</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-2.jpg" alt="Remote Learning Best Practices" loading="lazy">
+                                    <div class="article-category">Digital Tools</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=2">Remote Learning Best Practices: Lessons from the Pandemic</a></h3>
+                                    <p class="article-excerpt">Learn from the collective experience of educators worldwide who successfully adapted to remote learning during challenging times.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-3.jpg" alt="Emily Johnson" class="author-avatar">
+                                            <span class="author-name">Emily Johnson</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Jan 8, 2025</span>
+                                            <span class="read-time">7 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="2">
+                                            <i class="fas fa-heart"></i> <span>31</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>12</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-3.jpg" alt="Student Assessment Techniques" loading="lazy">
+                                    <div class="article-category">Assessment</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=3">Beyond Tests: Innovative Student Assessment Techniques</a></h3>
+                                    <p class="article-excerpt">Explore creative ways to assess student learning that go beyond traditional testing methods and provide meaningful feedback.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-4.jpg" alt="David Park" class="author-avatar">
+                                            <span class="author-name">David Park</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Jan 5, 2025</span>
+                                            <span class="read-time">6 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="3">
+                                            <i class="fas fa-heart"></i> <span>18</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>5</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-4.jpg" alt="Professional Development" loading="lazy">
+                                    <div class="article-category">Professional Development</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=4">Building a Personal Learning Network for Teachers</a></h3>
+                                    <p class="article-excerpt">Learn how to create and maintain professional connections that will support your growth as an educator throughout your career.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-5.jpg" alt="Lisa Thompson" class="author-avatar">
+                                            <span class="author-name">Lisa Thompson</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Jan 3, 2025</span>
+                                            <span class="read-time">4 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="4">
+                                            <i class="fas fa-heart"></i> <span>27</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>9</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-5.jpg" alt="Special Education" loading="lazy">
+                                    <div class="article-category">Special Education</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=5">Inclusive Classroom Strategies for Diverse Learners</a></h3>
+                                    <p class="article-excerpt">Practical approaches to creating an inclusive learning environment that supports students with diverse needs and learning styles.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-6.jpg" alt="Maria Garcia" class="author-avatar">
+                                            <span class="author-name">Maria Garcia</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Dec 30, 2024</span>
+                                            <span class="read-time">9 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="5">
+                                            <i class="fas fa-heart"></i> <span>35</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>14</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <div class="article-image">
+                                    <img src="../assets/images/blog-6.jpg" alt="Student Engagement" loading="lazy">
+                                    <div class="article-category">Student Engagement</div>
+                                </div>
+                                <div class="article-content">
+                                    <h3><a href="blog-post.html?id=6">Gamification in Education: Making Learning Fun and Effective</a></h3>
+                                    <p class="article-excerpt">Discover how to incorporate game elements into your teaching to increase student motivation and engagement in the learning process.</p>
+                                    <div class="article-meta">
+                                        <div class="author-info">
+                                            <img src="../assets/images/author-7.jpg" alt="James Wilson" class="author-avatar">
+                                            <span class="author-name">James Wilson</span>
+                                        </div>
+                                        <div class="article-stats">
+                                            <span class="article-date">Dec 28, 2024</span>
+                                            <span class="read-time">6 min read</span>
+                                        </div>
+                                    </div>
+                                    <div class="article-engagement">
+                                        <button class="engagement-btn like-btn" data-post-id="6">
+                                            <i class="fas fa-heart"></i> <span>22</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i class="fas fa-comment"></i> <span>7</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn">
+                                            <i class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Load More Button -->
+                        <div class="load-more text-center">
+                            <button type="button" class="btn btn-outline btn-lg" id="loadMoreBtn">
+                                <span class="btn-text">Load More Articles</span>
+                                <span class="btn-loading hidden">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading...
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Newsletter Signup -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3><i class="fas fa-envelope"></i> Stay Updated</h3>
+                        <p>Get the latest educational insights delivered to your inbox weekly.</p>
+                        <form class="newsletter-form" data-ajax="true">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                        </form>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="sidebar-widget popular-posts">
+                        <h3><i class="fas fa-fire"></i> Popular This Week</h3>
+                        <div class="popular-post">
+                            <div class="popular-post-image">
+                                <img src="../assets/images/popular-1.jpg" alt="Popular post" loading="lazy">
+                            </div>
+                            <div class="popular-post-content">
+                                <h4><a href="blog-post.html?id=popular1">Creating Engaging Virtual Lessons</a></h4>
+                                <span class="popular-post-meta">Jan 12, 2025 • 1.2k views</span>
+                            </div>
+                        </div>
+                        <div class="popular-post">
+                            <div class="popular-post-image">
+                                <img src="../assets/images/popular-2.jpg" alt="Popular post" loading="lazy">
+                            </div>
+                            <div class="popular-post-content">
+                                <h4><a href="blog-post.html?id=popular2">Mindfulness in the Classroom</a></h4>
+                                <span class="popular-post-meta">Jan 9, 2025 • 980 views</span>
+                            </div>
+                        </div>
+                        <div class="popular-post">
+                            <div class="popular-post-image">
+                                <img src="../assets/images/popular-3.jpg" alt="Popular post" loading="lazy">
+                            </div>
+                            <div class="popular-post-content">
+                                <h4><a href="blog-post.html?id=popular3">Parent-Teacher Communication Tips</a></h4>
+                                <span class="popular-post-meta">Jan 7, 2025 • 875 views</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget categories-widget">
+                        <h3><i class="fas fa-folder"></i> Categories</h3>
+                        <ul class="categories-list">
+                            <li><a href="?category=classroom-management">Classroom Management <span>(45)</span></a></li>
+                            <li><a href="?category=digital-tools">Digital Tools <span>(38)</span></a></li>
+                            <li><a href="?category=assessment">Assessment <span>(32)</span></a></li>
+                            <li><a href="?category=professional-development">Professional Development <span>(28)</span></a></li>
+                            <li><a href="?category=special-education">Special Education <span>(24)</span></a></li>
+                            <li><a href="?category=curriculum-design">Curriculum Design <span>(21)</span></a></li>
+                            <li><a href="?category=student-engagement">Student Engagement <span>(19)</span></a></li>
+                            <li><a href="?category=educational-technology">Educational Technology <span>(15)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="sidebar-widget tags-widget">
+                        <h3><i class="fas fa-tags"></i> Popular Tags</h3>
+                        <div class="tags-cloud">
+                            <a href="?tag=teaching-tips" class="tag">teaching tips</a>
+                            <a href="?tag=online-learning" class="tag">online learning</a>
+                            <a href="?tag=student-motivation" class="tag">student motivation</a>
+                            <a href="?tag=classroom-tech" class="tag">classroom tech</a>
+                            <a href="?tag=lesson-planning" class="tag">lesson planning</a>
+                            <a href="?tag=differentiation" class="tag">differentiation</a>
+                            <a href="?tag=assessment" class="tag">assessment</a>
+                            <a href="?tag=parent-engagement" class="tag">parent engagement</a>
+                            <a href="?tag=professional-growth" class="tag">professional growth</a>
+                            <a href="?tag=education-trends" class="tag">education trends</a>
+                        </div>
+                    </div>
+
+                    <!-- Featured Author -->
+                    <div class="sidebar-widget author-spotlight">
+                        <h3><i class="fas fa-user-star"></i> Featured Author</h3>
+                        <div class="author-card">
+                            <img src="../assets/images/featured-author.jpg" alt="Dr. Sarah Chen" class="author-image">
+                            <h4>Dr. Sarah Chen</h4>
+                            <p class="author-bio">Educational Technology Expert with 15+ years of experience in digital learning innovation.</p>
+                            <div class="author-stats">
+                                <span>25 Articles</span>
+                                <span>50k Readers</span>
+                            </div>
+                            <a href="author.html?id=sarah-chen" class="btn btn-outline btn-sm">View Profile</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section bg-primary text-white py-5">
+        <div class="container text-center">
+            <h2>Share Your Teaching Experience</h2>
+            <p>Have a great teaching strategy or lesson learned? Share it with our community of educators.</p>
+            <div class="cta-buttons">
+                <a href="submit-article.html" class="btn btn-secondary btn-lg">Submit Article</a>
+                <a href="community.html" class="btn btn-outline-light btn-lg">Join Discussion</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EduMentor Pro</h3>
+                    <p>Empowering teachers worldwide with professional development programs and community support.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-secondary" title="Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-secondary" title="Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-secondary" title="LinkedIn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-secondary" title="YouTube" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="trainers.html">Find Trainers</a></li>
+                        <li><a href="certification.html">Get Certified</a></li>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="blog.html">Read Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@edumentorpro.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, LC 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupBlogSearch();
+            setupBlogFilters();
+            setupViewToggle();
+            setupEngagement();
+            setupLoadMore();
+            setupNewsletterSignup();
+        });
+
+        function setupBlogSearch() {
+            const heroSearchInput = document.getElementById('heroSearch');
+            const blogSearchInput = document.getElementById('blogSearch');
+            const searchBtn = document.querySelector('.search-btn');
+            const heroSearchBtn = document.querySelector('.search-submit-btn');
+            
+            // Hero search functionality
+            if (heroSearchInput) {
+                let heroSearchTimeout;
+                heroSearchInput.addEventListener('input', function() {
+                    clearTimeout(heroSearchTimeout);
+                    heroSearchTimeout = setTimeout(() => {
+                        performSearch(this.value);
+                    }, 300);
+                });
+
+                heroSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch(this.value);
+                    }
+                });
+            }
+
+            if (heroSearchBtn) {
+                heroSearchBtn.addEventListener('click', function() {
+                    performSearch(heroSearchInput.value);
+                });
+            }
+
+            // Blog section search functionality
+            if (blogSearchInput) {
+                let searchTimeout;
+                blogSearchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        performSearch(this.value);
+                    }, 300);
+                });
+
+                blogSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch(this.value);
+                    }
+                });
+            }
+
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function() {
+                    performSearch(blogSearchInput.value);
+                });
+            }
+
+            // Sync search inputs
+            if (heroSearchInput && blogSearchInput) {
+                heroSearchInput.addEventListener('input', function() {
+                    blogSearchInput.value = this.value;
+                });
+                
+                blogSearchInput.addEventListener('input', function() {
+                    heroSearchInput.value = this.value;
+                });
+            }
+        }
+
+        function setupBlogFilters() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const sortFilter = document.getElementById('sortFilter');
+
+            categoryFilter.addEventListener('change', function() {
+                applyFilters();
+            });
+
+            sortFilter.addEventListener('change', function() {
+                applyFilters();
+            });
+        }
+
+        function setupViewToggle() {
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const blogGrid = document.getElementById('blogGrid');
+
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const view = this.dataset.view;
+                    blogGrid.className = view === 'list' ? 'blog-list' : 'blog-grid';
+                });
+            });
+        }
+
+        function setupEngagement() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.like-btn')) {
+                    handleLike(e.target.closest('.like-btn'));
+                } else if (e.target.closest('.share-btn')) {
+                    handleShare(e.target.closest('.share-btn'));
+                }
+            });
+        }
+
+        function setupLoadMore() {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const btnText = loadMoreBtn.querySelector('.btn-text');
+            const btnLoading = loadMoreBtn.querySelector('.btn-loading');
+
+            loadMoreBtn.addEventListener('click', async function() {
+                this.disabled = true;
+                btnText.classList.add('hidden');
+                btnLoading.classList.remove('hidden');
+
+                try {
+                    // Simulate loading more articles
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    const newArticles = await loadMoreArticles();
+                    appendArticles(newArticles);
+                    
+                } catch (error) {
+                    EduMentor.Utils.showAlert('Failed to load more articles', 'danger');
+                } finally {
+                    this.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupNewsletterSignup() {
+            const form = document.querySelector('.newsletter-form');
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const email = new FormData(form).get('email');
+                    
+                    try {
+                        const response = await EduMentor.Utils.ajax('newsletter/subscribe', {
+                            method: 'POST',
+                            body: JSON.stringify({ email: email })
+                        });
+
+                        EduMentor.Utils.showAlert('Successfully subscribed to newsletter!', 'success');
+                        form.reset();
+                    } catch (error) {
+                        EduMentor.Utils.showAlert('Failed to subscribe. Please try again.', 'danger');
+                    }
+                });
+            }
+        }
+
+        async function performSearch(query) {
+            console.log('Searching for:', query);
+            
+            if (!query || query.trim() === '') {
+                // Show all posts if search is empty
+                showAllPosts();
+                return;
+            }
+
+            try {
+                // For now, implement client-side search
+                const blogPosts = document.querySelectorAll('.blog-card');
+                let visibleCount = 0;
+                
+                blogPosts.forEach(post => {
+                    const title = post.querySelector('.blog-title')?.textContent.toLowerCase() || '';
+                    const excerpt = post.querySelector('.blog-excerpt')?.textContent.toLowerCase() || '';
+                    const category = post.querySelector('.blog-category')?.textContent.toLowerCase() || '';
+                    const author = post.querySelector('.author-name')?.textContent.toLowerCase() || '';
+                    
+                    const searchLower = query.toLowerCase();
+                    const isMatch = title.includes(searchLower) || 
+                                  excerpt.includes(searchLower) || 
+                                  category.includes(searchLower) || 
+                                  author.includes(searchLower);
+                    
+                    if (isMatch) {
+                        post.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+
+                // Update results count
+                updateResultsCount(visibleCount, blogPosts.length);
+                
+                // Show no results message if needed
+                showNoResultsMessage(visibleCount === 0, query);
+
+            } catch (error) {
+                console.error('Search failed:', error);
+                showSearchError();
+            }
+        }
+
+        function showAllPosts() {
+            const blogPosts = document.querySelectorAll('.blog-card');
+            blogPosts.forEach(post => {
+                post.style.display = 'block';
+            });
+            updateResultsCount(blogPosts.length, blogPosts.length);
+            hideNoResultsMessage();
+        }
+
+        function showNoResultsMessage(show, query) {
+            let noResultsDiv = document.getElementById('noSearchResults');
+            
+            if (show) {
+                if (!noResultsDiv) {
+                    noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noSearchResults';
+                    noResultsDiv.className = 'no-results-message';
+                    noResultsDiv.innerHTML = `
+                        <div class="no-results-content">
+                            <i class="fas fa-search"></i>
+                            <h3>No articles found</h3>
+                            <p>We couldn't find any articles matching "<strong>${query}</strong>"</p>
+                            <p>Try different keywords or browse our categories below.</p>
+                        </div>
+                    `;
+                    const blogGrid = document.getElementById('blogGrid');
+                    if (blogGrid) {
+                        blogGrid.appendChild(noResultsDiv);
+                    }
+                }
+                noResultsDiv.style.display = 'block';
+            } else {
+                hideNoResultsMessage();
+            }
+        }
+
+        function hideNoResultsMessage() {
+            const noResultsDiv = document.getElementById('noSearchResults');
+            if (noResultsDiv) {
+                noResultsDiv.style.display = 'none';
+            }
+        }
+
+        function showSearchError() {
+            console.log('Search functionality temporarily unavailable');
+        }
+
+        async function applyFilters() {
+            const category = document.getElementById('categoryFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+            
+            try {
+                const params = new URLSearchParams();
+                if (category) params.append('category', category);
+                if (sort) params.append('sort', sort);
+                
+                const response = await EduMentor.Utils.ajax(`blog?${params.toString()}`);
+                if (response.success) {
+                    displayBlogPosts(response.data);
+                    updateResultsCount(response.data.length, response.total);
+                }
+            } catch (error) {
+                console.error('Filter failed:', error);
+            }
+        }
+
+        function handleLike(btn) {
+            const postId = btn.dataset.postId;
+            const countSpan = btn.querySelector('span');
+            const icon = btn.querySelector('i');
+            
+            // Toggle like state
+            const isLiked = btn.classList.contains('liked');
+            btn.classList.toggle('liked');
+            
+            if (isLiked) {
+                countSpan.textContent = parseInt(countSpan.textContent) - 1;
+                icon.className = 'fas fa-heart';
+            } else {
+                countSpan.textContent = parseInt(countSpan.textContent) + 1;
+                icon.className = 'fas fa-heart liked';
+            }
+
+            // Send to server
+            EduMentor.Utils.ajax(`blog/${postId}/like`, {
+                method: 'POST',
+                body: JSON.stringify({ action: isLiked ? 'unlike' : 'like' })
+            }).catch(error => {
+                // Revert on error
+                btn.classList.toggle('liked');
+                countSpan.textContent = parseInt(countSpan.textContent) + (isLiked ? 1 : -1);
+            });
+        }
+
+        function handleShare(btn) {
+            const article = btn.closest('.article-card');
+            const title = article.querySelector('h3 a').textContent;
+            const url = article.querySelector('h3 a').href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(url).then(() => {
+                    EduMentor.Utils.showAlert('Link copied to clipboard!', 'success');
+                });
+            }
+        }
+
+        async function loadMoreArticles() {
+            // This would normally make an API call
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve([
+                        // Mock additional articles
+                        {
+                            id: 'new1',
+                            title: 'Building Digital Literacy in Elementary Students',
+                            excerpt: 'Essential strategies for introducing young learners to technology...',
+                            author: 'Rachel Green',
+                            date: 'Dec 25, 2024',
+                            readTime: '5 min read',
+                            category: 'Digital Tools',
+                            image: '../assets/images/blog-new1.jpg'
+                        }
+                    ]);
+                }, 1000);
+            });
+        }
+
+        function displayBlogPosts(posts) {
+            const grid = document.getElementById('blogGrid');
+            grid.innerHTML = posts.map(post => createArticleCard(post)).join('');
+        }
+
+        function appendArticles(articles) {
+            const grid = document.getElementById('blogGrid');
+            const articlesHtml = articles.map(article => createArticleCard(article)).join('');
+            grid.insertAdjacentHTML('beforeend', articlesHtml);
+        }
+
+        function createArticleCard(post) {
+            return `
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                        <div class="article-category">${post.category}</div>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="blog-post.html?id=${post.id}">${post.title}</a></h3>
+                        <p class="article-excerpt">${post.excerpt}</p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <img src="${post.authorAvatar || '../assets/images/default-avatar.jpg'}" alt="${post.author}" class="author-avatar">
+                                <span class="author-name">${post.author}</span>
+                            </div>
+                            <div class="article-stats">
+                                <span class="article-date">${post.date}</span>
+                                <span class="read-time">${post.readTime}</span>
+                            </div>
+                        </div>
+                        <div class="article-engagement">
+                            <button class="engagement-btn like-btn" data-post-id="${post.id}">
+                                <i class="fas fa-heart"></i> <span>${post.likes || 0}</span>
+                            </button>
+                            <button class="engagement-btn comment-btn">
+                                <i class="fas fa-comment"></i> <span>${post.comments || 0}</span>
+                            </button>
+                            <button class="engagement-btn share-btn">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function updateResultsCount(showing, total) {
+            const countElement = document.getElementById('resultsCount');
+            countElement.textContent = `Showing 1-${showing} of ${total} articles`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Requests - EduMentor Pro</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-content">
+            <div class="admin-brand">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <i class="fas fa-shield-alt"></i>
+                <span class="brand-text">EduMentor Pro</span>
+                <span class="admin-badge">Admin</span>
+            </div>
+            
+            <div class="header-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search requests..." id="globalSearch">
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="notification-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <div class="admin-profile" id="adminProfile">
+                    <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="admin-avatar" id="adminAvatar">
+                    <div class="admin-details">
+                        <span class="admin-name" id="adminName">John Admin</span>
+                        <span class="admin-role" id="adminRole">Super Admin</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                    
+                    <!-- Profile Dropdown -->
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="dropdown-avatar">
+                            <div class="dropdown-info">
+                                <span class="dropdown-name" id="dropdownName">John Admin</span>
+                                <span class="dropdown-email" id="dropdownEmail">admin@edumentor.pro</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            <span>Profile Settings</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Account Settings</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Main</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a></li>
+                        <li><a href="analytics.html" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>User Management</h3>
+                    <ul>
+                        <li><a href="users.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Users</span>
+                        </a></li>
+                        <li><a href="admin-requests.html" class="nav-link active">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Admin Requests</span>
+                            <span class="nav-badge" id="pendingRequestsBadge">0</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Content</h3>
+                    <ul>
+                        <li><a href="courses.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Courses</span>
+                        </a></li>
+                        <li><a href="trainers.html" class="nav-link">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Trainers</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1><i class="fas fa-user-shield"></i> Admin Access Requests</h1>
+                        <p>Review and manage admin access requests</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" id="refreshBtn">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-section">
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label for="statusFilter">Status</label>
+                            <select id="statusFilter" class="form-control">
+                                <option value="">All Statuses</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="departmentFilter">Department</label>
+                            <select id="departmentFilter" class="form-control">
+                                <option value="">All Departments</option>
+                                <option value="administration">Administration</option>
+                                <option value="academic">Academic Affairs</option>
+                                <option value="training">Training & Development</option>
+                                <option value="technology">Technology</option>
+                                <option value="support">Student Support</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requests Table -->
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3>Admin Access Requests</h3>
+                        <div class="table-stats">
+                            <span class="stat-item">
+                                <span class="stat-label">Total:</span>
+                                <span class="stat-value" id="totalRequests">0</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-label">Pending:</span>
+                                <span class="stat-value pending" id="pendingRequests">0</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="data-table" id="requestsTable">
+                            <thead>
+                                <tr>
+                                    <th>Applicant</th>
+                                    <th>Department</th>
+                                    <th>Requested Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestsTableBody">
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading requests...</span>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-state hidden" id="emptyState">
+                        <i class="fas fa-inbox"></i>
+                        <h3>No Admin Requests</h3>
+                        <p>No admin access requests found.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Request Details Modal -->
+    <div class="modal" id="requestModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Admin Request Details</h3>
+                    <button type="button" class="modal-close" data-dismiss="modal" 
+                            title="Close modal" aria-label="Close modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="requestModalBody">
+                    <!-- Dynamic content -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="rejectRequestBtn">
+                        <i class="fas fa-times"></i>
+                        Reject
+                    </button>
+                    <button type="button" class="btn btn-success" id="approveRequestBtn">
+                        <i class="fas fa-check"></i>
+                        Approve
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Admin Requests Manager
+        class AdminRequestsManager {
+            constructor() {
+                this.currentRequest = null;
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.loadRequests();
+            }
+            
+            setupEventListeners() {
+                // Refresh button
+                document.getElementById('refreshBtn').addEventListener('click', () => {
+                    this.loadRequests();
+                });
+                
+                // Filter changes
+                document.getElementById('statusFilter').addEventListener('change', () => {
+                    this.loadRequests();
+                });
+                
+                document.getElementById('departmentFilter').addEventListener('change', () => {
+                    this.loadRequests();
+                });
+                
+                // Modal actions
+                document.getElementById('approveRequestBtn').addEventListener('click', () => {
+                    if (this.currentRequest) {
+                        this.updateRequestStatus(this.currentRequest.id, 'approved');
+                    }
+                });
+                
+                document.getElementById('rejectRequestBtn').addEventListener('click', () => {
+                    if (this.currentRequest) {
+                        this.updateRequestStatus(this.currentRequest.id, 'rejected');
+                    }
+                });
+                
+                // Modal close
+                document.querySelectorAll('[data-dismiss="modal"]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.closeModal();
+                    });
+                });
+            }
+            
+            async loadRequests() {
+                const loadingState = document.getElementById('loadingState');
+                const emptyState = document.getElementById('emptyState');
+                const tableBody = document.getElementById('requestsTableBody');
+                
+                loadingState.style.display = 'flex';
+                emptyState.style.display = 'none';
+                
+                try {
+                    const statusFilter = document.getElementById('statusFilter').value;
+                    const departmentFilter = document.getElementById('departmentFilter').value;
+                    
+                    let url = '../backend/api/admin-crud.php?resource=admin-requests';
+                    if (statusFilter) url += `&status=${statusFilter}`;
+                    if (departmentFilter) url += `&department=${departmentFilter}`;
+                    
+                    const response = await fetch(url);
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.displayRequests(result.data.requests);
+                        this.updateStats(result.data.requests);
+                    } else {
+                        this.showAlert(result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error loading requests:', error);
+                    this.showAlert('Failed to load requests', 'error');
+                } finally {
+                    loadingState.style.display = 'none';
+                }
+            }
+            
+            displayRequests(requests) {
+                const tableBody = document.getElementById('requestsTableBody');
+                const emptyState = document.getElementById('emptyState');
+                
+                if (!requests || requests.length === 0) {
+                    tableBody.innerHTML = '';
+                    emptyState.style.display = 'flex';
+                    return;
+                }
+                
+                emptyState.style.display = 'none';
+                
+                tableBody.innerHTML = requests.map(request => `
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="user-avatar">${this.getInitials(request.first_name, request.last_name)}</div>
+                                <div class="user-details">
+                                    <div class="user-name">${request.first_name} ${request.last_name}</div>
+                                    <div class="user-email">${request.email}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="department-badge">${this.formatDepartment(request.department)}</span>
+                        </td>
+                        <td>
+                            <div class="date-info">
+                                <div class="date">${this.formatDate(request.requested_at)}</div>
+                                <div class="time">${this.formatTime(request.requested_at)}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-${request.status}">${request.status}</span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-primary" onclick="adminRequestsManager.viewRequest(${request.id})">
+                                    <i class="fas fa-eye"></i>
+                                    View
+                                </button>
+                                ${request.status === 'pending' ? `
+                                    <button class="btn btn-sm btn-success" onclick="adminRequestsManager.quickApprove(${request.id})">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="adminRequestsManager.quickReject(${request.id})">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+            
+            updateStats(requests) {
+                const totalRequests = requests.length;
+                const pendingRequests = requests.filter(r => r.status === 'pending').length;
+                
+                document.getElementById('totalRequests').textContent = totalRequests;
+                document.getElementById('pendingRequests').textContent = pendingRequests;
+                document.getElementById('pendingRequestsBadge').textContent = pendingRequests;
+            }
+            
+            async viewRequest(requestId) {
+                try {
+                    const response = await fetch(`../backend/api/admin-crud.php?resource=admin-requests&id=${requestId}`);
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.currentRequest = result.data.request;
+                        this.showRequestModal(result.data.request);
+                    } else {
+                        this.showAlert(result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error loading request details:', error);
+                    this.showAlert('Failed to load request details', 'error');
+                }
+            }
+            
+            showRequestModal(request) {
+                const modalBody = document.getElementById('requestModalBody');
+                
+                modalBody.innerHTML = `
+                    <div class="request-details">
+                        <div class="detail-section">
+                            <h4>Applicant Information</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <label>Name:</label>
+                                    <span>${request.first_name} ${request.last_name}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Email:</label>
+                                    <span>${request.email}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Username:</label>
+                                    <span>${request.username}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Department:</label>
+                                    <span>${this.formatDepartment(request.department)}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Request Details</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <label>Requested Date:</label>
+                                    <span>${this.formatDateTime(request.requested_at)}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Status:</label>
+                                    <span class="status-badge status-${request.status}">${request.status}</span>
+                                </div>
+                                ${request.reviewed_at ? `
+                                    <div class="detail-item">
+                                        <label>Reviewed Date:</label>
+                                        <span>${this.formatDateTime(request.reviewed_at)}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Justification</h4>
+                            <div class="justification-text">
+                                ${request.justification}
+                            </div>
+                        </div>
+                        
+                        ${request.notes ? `
+                            <div class="detail-section">
+                                <h4>Review Notes</h4>
+                                <div class="notes-text">
+                                    ${request.notes}
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        ${request.status === 'pending' ? `
+                            <div class="detail-section">
+                                <h4>Review Notes</h4>
+                                <textarea id="reviewNotes" class="form-control" rows="3" placeholder="Add notes for this review..."></textarea>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                // Show/hide action buttons based on status
+                const approveBtn = document.getElementById('approveRequestBtn');
+                const rejectBtn = document.getElementById('rejectRequestBtn');
+                
+                if (request.status === 'pending') {
+                    approveBtn.style.display = 'inline-flex';
+                    rejectBtn.style.display = 'inline-flex';
+                } else {
+                    approveBtn.style.display = 'none';
+                    rejectBtn.style.display = 'none';
+                }
+                
+                document.getElementById('requestModal').classList.add('active');
+            }
+            
+            async updateRequestStatus(requestId, status) {
+                const reviewNotes = document.getElementById('reviewNotes')?.value || '';
+                
+                try {
+                    const response = await fetch(`../backend/api/admin-crud.php?resource=admin-requests&id=${requestId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            status: status,
+                            notes: reviewNotes
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.showAlert(`Request ${status} successfully!`, 'success');
+                        this.closeModal();
+                        this.loadRequests();
+                    } else {
+                        this.showAlert(result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error updating request:', error);
+                    this.showAlert('Failed to update request', 'error');
+                }
+            }
+            
+            async quickApprove(requestId) {
+                if (confirm('Are you sure you want to approve this admin request?')) {
+                    await this.updateRequestStatus(requestId, 'approved');
+                }
+            }
+            
+            async quickReject(requestId) {
+                if (confirm('Are you sure you want to reject this admin request?')) {
+                    await this.updateRequestStatus(requestId, 'rejected');
+                }
+            }
+            
+            closeModal() {
+                document.getElementById('requestModal').classList.remove('active');
+                this.currentRequest = null;
+            }
+            
+            // Utility methods
+            getInitials(firstName, lastName) {
+                return (firstName[0] + lastName[0]).toUpperCase();
+            }
+            
+            formatDepartment(department) {
+                return department.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+            }
+            
+            formatDate(dateString) {
+                return new Date(dateString).toLocaleDateString();
+            }
+            
+            formatTime(dateString) {
+                return new Date(dateString).toLocaleTimeString();
+            }
+            
+            formatDateTime(dateString) {
+                return new Date(dateString).toLocaleString();
+            }
+            
+            showAlert(message, type) {
+                // Create alert container if it doesn't exist
+                let alertContainer = document.getElementById('alertContainer');
+                if (!alertContainer) {
+                    alertContainer = document.createElement('div');
+                    alertContainer.id = 'alertContainer';
+                    alertContainer.className = 'alert-container';
+                    document.body.appendChild(alertContainer);
+                }
+                
+                const alert = document.createElement('div');
+                alert.className = `alert alert-${type}`;
+                alert.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                    <span>${message}</span>
+                    <button type="button" class="alert-close" onclick="this.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                alertContainer.appendChild(alert);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (alert.parentElement) {
+                        alert.remove();
+                    }
+                }, 5000);
+            }
+        }
+        
+        // Initialize when DOM is ready
+        let adminRequestsManager;
+        document.addEventListener('DOMContentLoaded', () => {
+            adminRequestsManager = new AdminRequestsManager();
+        });
+    </script>
+    
+    <!-- Include authentication script -->
+    <script>
+        // Admin Authentication Manager (simplified version)
+        class AdminAuthManager {
+            constructor() {
+                this.checkAuthentication();
+                this.setupProfileDropdown();
+                this.setupLogout();
+            }
+            
+            async checkAuthentication() {
+                try {
+                    const response = await fetch('../backend/api/auth.php?action=check-session');
+                    const result = await response.json();
+                    
+                    if (!result.success) {
+                        window.location.href = 'login.html';
+                    } else {
+                        this.updateUserInterface(result.data.user);
+                    }
+                } catch (error) {
+                    window.location.href = 'login.html';
+                }
+            }
+            
+            updateUserInterface(user) {
+                document.getElementById('adminName').textContent = user.name;
+                document.getElementById('adminRole').textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+                document.getElementById('dropdownName').textContent = user.name;
+                document.getElementById('dropdownEmail').textContent = user.email;
+            }
+            
+            setupProfileDropdown() {
+                const adminProfile = document.getElementById('adminProfile');
+                const profileDropdown = document.getElementById('profileDropdown');
+                
+                adminProfile.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    profileDropdown.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!adminProfile.contains(e.target)) {
+                        profileDropdown.classList.remove('active');
+                    }
+                });
+            }
+            
+            setupLogout() {
+                document.getElementById('logoutBtn').addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = new FormData();
+                    formData.append('action', 'logout');
+                    
+                    try {
+                        await fetch('../backend/api/auth.php', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        window.location.href = 'login.html';
+                    } catch (error) {
+                        window.location.href = 'login.html';
+                    }
+                });
+            }
+        }
+        
+        // Initialize authentication
+        document.addEventListener('DOMContentLoaded', () => {
+            new AdminAuthManager();
+        });
+    </script>
+</body>
+</html>

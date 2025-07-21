@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainers Management - EduMentor Pro Admin</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-content">
+            <div class="admin-brand">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <i class="fas fa-shield-alt"></i>
+                <span class="brand-text">EduMentor Pro</span>
+                <span class="admin-badge">Admin</span>
+            </div>
+            
+            <div class="header-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search trainers..." id="globalSearch">
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="notification-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <div class="admin-profile">
+                    <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="admin-avatar">
+                    <div class="admin-details">
+                        <span class="admin-name">John Admin</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Main</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a></li>
+                        <li><a href="analytics.html" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Content Management</h3>
+                    <ul>
+                        <li><a href="courses.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Courses</span>
+                            <span class="nav-badge">24</span>
+                        </a></li>
+                        <li><a href="trainers.html" class="nav-link active">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Trainers</span>
+                            <span class="nav-badge">12</span>
+                        </a></li>
+                        <li><a href="blog.html" class="nav-link">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog Posts</span>
+                        </a></li>
+                        <li><a href="resources.html" class="nav-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Resources</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>User Management</h3>
+                    <ul>
+                        <li><a href="users.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Users</span>
+                            <span class="nav-badge">1.2K</span>
+                        </a></li>
+                        <li><a href="roles.html" class="nav-link">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Roles & Permissions</span>
+                        </a></li>
+                        <li><a href="registrations.html" class="nav-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Registrations</span>
+                            <span class="nav-badge new">5</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Learning Management</h3>
+                    <ul>
+                        <li><a href="enrollments.html" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Enrollments</span>
+                        </a></li>
+                        <li><a href="certifications.html" class="nav-link">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certifications</span>
+                        </a></li>
+                        <li><a href="progress.html" class="nav-link">
+                            <i class="fas fa-tasks"></i>
+                            <span>Progress Tracking</span>
+                        </a></li>
+                        <li><a href="assessments.html" class="nav-link">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Assessments</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="forum.html" class="nav-link">
+                            <i class="fas fa-comments"></i>
+                            <span>Forum Management</span>
+                        </a></li>
+                        <li><a href="discussions.html" class="nav-link">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>Discussions</span>
+                        </a></li>
+                        <li><a href="moderation.html" class="nav-link">
+                            <i class="fas fa-eye"></i>
+                            <span>Content Moderation</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>System</h3>
+                    <ul>
+                        <li><a href="settings.html" class="nav-link">
+                            <i class="fas fa-cogs"></i>
+                            <span>Settings</span>
+                        </a></li>
+                        <li><a href="backups.html" class="nav-link">
+                            <i class="fas fa-database"></i>
+                            <span>Backups</span>
+                        </a></li>
+                        <li><a href="logs.html" class="nav-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span>System Logs</span>
+                        </a></li>
+                        <li><a href="maintenance.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            <span>Maintenance</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="../user-side/index.html" class="btn btn-outline btn-sm">
+                    <i class="fas fa-external-link-alt"></i> View Site
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Trainers Management</h1>
+                    <p>Manage instructor profiles, qualifications, and performance</p>
+                </div>
+                
+                <div class="page-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn btn-primary" onclick="openAddTrainerModal()">
+                        <i class="fas fa-plus"></i> Add Trainer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trainer Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>24</h3>
+                        <p>Total Trainers</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>4.8</h3>
+                        <p>Avg Rating</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>18</h3>
+                        <p>Active Trainers</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>6</h3>
+                        <p>Pending Approval</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trainers Table -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>All Trainers</h3>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <select class="form-control" aria-label="Filter by status">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <select class="form-control" aria-label="Filter by specialization">
+                                <option value="">All Specializations</option>
+                                <option value="web-dev">Web Development</option>
+                                <option value="mobile-dev">Mobile Development</option>
+                                <option value="ui-ux">UI/UX Design</option>
+                                <option value="data-science">Data Science</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Search trainers...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Trainer</th>
+                                <th>Specialization</th>
+                                <th>Experience</th>
+                                <th>Courses</th>
+                                <th>Students</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="row-checkbox">
+                                </td>
+                                <td>
+                                    <div class="trainer-info">
+                                        <img src="../assets/images/trainer1.jpg" alt="Trainer" class="trainer-avatar">
+                                        <div>
+                                            <h4>Sarah Johnson</h4>
+                                            <p>sarah.johnson@email.com</p>
+                                            <span class="join-date">Joined: Mar 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="specialization-tag web-dev">Web Development</span>
+                                </td>
+                                <td>8 years</td>
+                                <td>12</td>
+                                <td>1,234</td>
+                                <td>
+                                    <div class="rating">
+                                        <span class="rating-value">4.9</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-view" title="View Profile">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="row-checkbox">
+                                </td>
+                                <td>
+                                    <div class="trainer-info">
+                                        <img src="../assets/images/trainer2.jpg" alt="Trainer" class="trainer-avatar">
+                                        <div>
+                                            <h4>Michael Chen</h4>
+                                            <p>michael.chen@email.com</p>
+                                            <span class="join-date">Joined: Jan 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="specialization-tag mobile-dev">Mobile Development</span>
+                                </td>
+                                <td>6 years</td>
+                                <td>8</td>
+                                <td>867</td>
+                                <td>
+                                    <div class="rating">
+                                        <span class="rating-value">4.7</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-view" title="View Profile">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="row-checkbox">
+                                </td>
+                                <td>
+                                    <div class="trainer-info">
+                                        <img src="../assets/images/trainer3.jpg" alt="Trainer" class="trainer-avatar">
+                                        <div>
+                                            <h4>Emily Rodriguez</h4>
+                                            <p>emily.rodriguez@email.com</p>
+                                            <span class="join-date">Joined: Feb 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="specialization-tag ui-ux">UI/UX Design</span>
+                                </td>
+                                <td>5 years</td>
+                                <td>6</td>
+                                <td>543</td>
+                                <td>
+                                    <div class="rating">
+                                        <span class="rating-value">4.8</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge pending">Pending</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-view" title="View Profile">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="row-checkbox">
+                                </td>
+                                <td>
+                                    <div class="trainer-info">
+                                        <img src="../assets/images/trainer4.jpg" alt="Trainer" class="trainer-avatar">
+                                        <div>
+                                            <h4>David Thompson</h4>
+                                            <p>david.thompson@email.com</p>
+                                            <span class="join-date">Joined: Apr 2023</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="specialization-tag data-science">Data Science</span>
+                                </td>
+                                <td>10 years</td>
+                                <td>15</td>
+                                <td>2,156</td>
+                                <td>
+                                    <div class="rating">
+                                        <span class="rating-value">4.9</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">Active</span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-view" title="View Profile">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="pagination-info">
+                        Showing 1-4 of 24 trainers
+                    </div>
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="pagination-pages">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                        </span>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Trainer Modal -->
+    <div class="modal" id="addTrainerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Trainer</h3>
+                <button class="modal-close" onclick="closeAddTrainerModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="trainerName">Full Name</label>
+                        <input type="text" id="trainerName" class="form-control" placeholder="Enter trainer's full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="trainerEmail">Email Address</label>
+                        <input type="email" id="trainerEmail" class="form-control" placeholder="Enter email address" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="trainerPhone">Phone Number</label>
+                        <input type="tel" id="trainerPhone" class="form-control" placeholder="Enter phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="trainerSpecialization">Specialization</label>
+                        <select id="trainerSpecialization" class="form-control" required>
+                            <option value="">Select specialization</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="mobile-dev">Mobile Development</option>
+                            <option value="ui-ux">UI/UX Design</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="trainerBio">Biography</label>
+                    <textarea id="trainerBio" class="form-control" rows="4" placeholder="Enter trainer biography and qualifications"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="trainerExperience">Years of Experience</label>
+                        <input type="number" id="trainerExperience" class="form-control" min="0" max="50" placeholder="Years">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="trainerStatus">Status</label>
+                        <select id="trainerStatus" class="form-control" required>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="trainerPhoto">Profile Photo</label>
+                    <input type="file" id="trainerPhoto" class="form-control" accept="image/*">
+                </div>
+            </form>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeAddTrainerModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Trainer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Modal Functions
+        function openAddTrainerModal() {
+            document.getElementById('addTrainerModal').style.display = 'flex';
+        }
+
+        function closeAddTrainerModal() {
+            document.getElementById('addTrainerModal').style.display = 'none';
+        }
+
+        // Table Functions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select All Checkbox
+            const selectAllCheckbox = document.getElementById('selectAll');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+
+            selectAllCheckbox.addEventListener('change', function() {
+                rowCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+
+            // Row Selection
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+                    selectAllCheckbox.checked = checkedBoxes.length === rowCheckboxes.length;
+                    selectAllCheckbox.indeterminate = checkedBoxes.length > 0 && checkedBoxes.length < rowCheckboxes.length;
+                });
+            });
+
+            // Close modal on background click
+            document.getElementById('addTrainerModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeAddTrainerModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
