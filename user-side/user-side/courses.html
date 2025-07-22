@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduMentor Pro</title>
+    <meta name="description" content="Browse our comprehensive collection of teacher training courses">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/user-auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="courses.html" class="nav-link active">Courses</a></li>
+                <li><a href="trainers.html" class="nav-link">Trainers</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <!-- Auth buttons will be managed by JavaScript -->
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header bg-primary text-white py-5 mt-5">
+        <div class="container">
+            <h1>Teacher Training Courses</h1>
+            <p>Discover comprehensive training programs designed to enhance your teaching skills</p>
+            
+            <!-- Course Search -->
+            <div class="search-bar mt-4">
+                <div class="d-flex gap-2">
+                    <input type="text" id="course-search" class="form-control" placeholder="Search courses..." data-search="courses">
+                    <button type="button" class="btn btn-secondary" onclick="performSearch()" title="Search courses" aria-label="Search courses">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="category-filter" class="sr-only">Filter by category</label>
+                    <select id="category-filter" name="category" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by category">
+                        <option value="">All Categories</option>
+                        <option value="Digital Teaching">Digital Teaching</option>
+                        <option value="Classroom Management">Classroom Management</option>
+                        <option value="Assessment">Assessment</option>
+                        <option value="Curriculum Development">Curriculum Development</option>
+                        <option value="Special Education">Special Education</option>
+                        <option value="Leadership">Leadership</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="level-filter" class="sr-only">Filter by level</label>
+                    <select id="level-filter" name="level" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by level">
+                        <option value="">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="duration-filter" class="sr-only">Filter by duration</label>
+                    <select id="duration-filter" name="duration" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by duration">
+                        <option value="">Any Duration</option>
+                        <option value="1-5">1-5 hours</option>
+                        <option value="6-10">6-10 hours</option>
+                        <option value="11-20">11-20 hours</option>
+                        <option value="20+">20+ hours</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="rating-filter" class="sr-only">Filter by rating</label>
+                    <select id="rating-filter" name="rating" class="form-control form-select" data-filter onchange="applyFilters()" title="Filter by rating">
+                        <option value="">Any Rating</option>
+                        <option value="4.5">4.5+ Stars</option>
+                        <option value="4.0">4.0+ Stars</option>
+                        <option value="3.5">3.5+ Stars</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="sort-filter" class="sr-only">Sort courses by</label>
+                    <select id="sort-filter" name="sort_by" class="form-control form-select" onchange="applyFilters()" title="Sort courses by">
+                        <option value="created_at">Newest First</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="title">Alphabetical</option>
+                        <option value="duration">Duration</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-outline" onclick="clearFilters()" title="Clear all filters" aria-label="Clear all filters">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="courses py-5">
+        <div class="container">
+            <!-- View Toggle -->
+            <div class="d-flex justify-between align-center mb-4">
+                <div class="results-info">
+                    <span id="results-count">Loading courses...</span>
+                </div>
+                
+                <div class="view-toggle">
+                    <button class="btn btn-sm btn-outline active" data-view="grid" onclick="toggleView('grid')" title="Grid view" aria-label="Switch to grid view">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline" data-view="list" onclick="toggleView('list')" title="List view" aria-label="Switch to list view">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loading" class="text-center py-5">
+                <div class="spinner"></div>
+                <p class="mt-3">Loading courses...</p>
+            </div>
+            
+            <!-- Courses Container -->
+            <div id="courses-results" class="grid grid-3">
+                <!-- Courses will be loaded here via JavaScript -->
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="text-center mt-5">
+                <!-- Pagination will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h3>Stay Updated with New Courses</h3>
+            <p>Be the first to know when we launch new training programs</p>
+            
+            <form class="newsletter-form" data-ajax="true" action="newsletter/subscribe" method="POST">
+                <div class="d-flex gap-2">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-secondary">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EduMentor Pro</h3>
+                    <p>Empowering teachers worldwide with professional development programs.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="trainers.html">Find Trainers</a></li>
+                        <li><a href="certification.html">Get Certified</a></li>
+                        <li><a href="community.html">Join Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@edumentorpro.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Page-specific JavaScript
+        let currentPage = 0;
+        let currentFilters = {};
+        let currentView = 'grid';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCourses();
+            setupSearch();
+        });
+        
+        async function loadCourses(page = 0, filters = {}) {
+            try {
+                showLoading();
+                
+                // Add status filter to only show active/published courses
+                const params = new URLSearchParams({
+                    page: page,
+                    limit: 9,
+                    status: 'active', // Only show published courses on user side
+                    ...filters
+                });
+                
+                // Use direct fetch instead of EduMentor.Utils.ajax to debug
+                const url = `../backend/api/courses.php?${params}`;
+                console.log('Loading courses from:', url);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                console.log('Courses API response:', result);
+                
+                if (result.success) {
+                    displayCourses(result.data || []);
+                    updatePagination(result.total || 0, page);
+                    updateResultsCount(result.total || 0, page);
+                } else {
+                    showError(result.message || 'Failed to load courses');
+                }
+                
+            } catch (error) {
+                console.error('Error loading courses:', error);
+                showError('Error loading courses: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+        
+        function displayCourses(courses) {
+            const container = document.getElementById('courses-results');
+            
+            if (courses.length === 0) {
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-search fa-3x text-secondary mb-3"></i>
+                        <h3>No courses found</h3>
+                        <p>Try adjusting your search criteria or filters</p>
+                        <button class="btn btn-primary" onclick="clearFilters()">Clear Filters</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.className = currentView === 'grid' ? 'grid grid-3' : 'course-list';
+            
+            container.innerHTML = courses.map(course => {
+                if (currentView === 'grid') {
+                    return createCourseCard(course);
+                } else {
+                    return createCourseListItem(course);
+                }
+            }).join('');
+        }
+        
+        function createCourseCard(course) {
+            return `
+                <div class="card course-card">
+                    <img src="${course.image || '../assets/images/course-placeholder.jpg'}" 
+                         alt="${course.title}" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">${course.title}</h3>
+                        <p class="card-text">${course.short_description}</p>
+                        
+                        <div class="course-meta">
+                            <span class="course-rating">★ ${course.rating}</span>
+                            <span class="course-duration">${course.duration} hours</span>
+                            <span class="course-level badge badge-${getLevelColor(course.level)}">${course.level}</span>
+                        </div>
+                        
+                        <div class="course-trainer">
+                            <small class="text-secondary">
+                                <i class="fas fa-user"></i> ${course.trainer_name || 'TBA'}
+                            </small>
+                        </div>
+                        
+                        <div class="course-actions mt-3">
+                            <a href="course-details.html?id=${course.id}" class="btn btn-primary">View Details</a>
+                            ${course.price > 0 ? 
+                                `<span class="course-price">$${course.price}</span>` : 
+                                `<span class="course-price text-success">Free</span>`
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function createCourseListItem(course) {
+            return `
+                <div class="card course-list-item mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="${course.image || '../assets/images/course-placeholder.jpg'}" 
+                                     alt="${course.title}" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-9">
+                                <h3 class="card-title">${course.title}</h3>
+                                <p class="card-text">${course.short_description}</p>
+                                
+                                <div class="course-meta mb-2">
+                                    <span class="course-rating">★ ${course.rating}</span>
+                                    <span class="course-duration">${course.duration} hours</span>
+                                    <span class="course-level badge badge-${getLevelColor(course.level)}">${course.level}</span>
+                                    <span class="course-trainer">
+                                        <i class="fas fa-user"></i> ${course.trainer_name || 'TBA'}
+                                    </span>
+                                </div>
+                                
+                                <div class="d-flex justify-between align-center">
+                                    <a href="course-details.html?id=${course.id}" class="btn btn-primary">View Details</a>
+                                    ${course.price > 0 ? 
+                                        `<span class="course-price h5">$${course.price}</span>` : 
+                                        `<span class="course-price h5 text-success">Free</span>`
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function getLevelColor(level) {
+            switch(level) {
+                case 'beginner': return 'success';
+                case 'intermediate': return 'warning';
+                case 'advanced': return 'danger';
+                default: return 'primary';
+            }
+        }
+        
+        function applyFilters() {
+            const filterInputs = document.querySelectorAll('[data-filter], select[name="sort_by"]');
+            const filters = {};
+            
+            filterInputs.forEach(input => {
+                if (input.value) {
+                    filters[input.name] = input.value;
+                }
+            });
+            
+            currentFilters = filters;
+            currentPage = 0;
+            
+            // Update URL with filters
+            EduMentor.Utils.updateUrlParams(filters);
+            
+            loadCourses(currentPage, filters);
+        }
+        
+        function clearFilters() {
+            document.querySelectorAll('[data-filter], select[name="sort_by"]').forEach(input => {
+                input.value = '';
+            });
+            
+            document.getElementById('course-search').value = '';
+            
+            currentFilters = {};
+            currentPage = 0;
+            
+            // Clear URL params
+            window.history.pushState({}, '', window.location.pathname);
+            
+            loadCourses();
+        }
+        
+        function performSearch() {
+            const searchInput = document.getElementById('course-search');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                currentFilters.search = searchTerm;
+            } else {
+                delete currentFilters.search;
+            }
+            
+            currentPage = 0;
+            loadCourses(currentPage, currentFilters);
+        }
+        
+        function setupSearch() {
+            const searchInput = document.getElementById('course-search');
+            const debouncedSearch = EduMentor.Utils.debounce(performSearch, 300);
+            
+            searchInput.addEventListener('input', debouncedSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+        }
+        
+        function toggleView(view) {
+            currentView = view;
+            
+            // Update button states
+            document.querySelectorAll('[data-view]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-view="${view}"]`).classList.add('active');
+            
+            // Re-render courses with new view
+            const container = document.getElementById('courses-results');
+            if (container.children.length > 0) {
+                // Trigger re-render by calling loadCourses with current state
+                loadCourses(currentPage, currentFilters);
+            }
+        }
+        
+        function updatePagination(total, currentPage) {
+            const totalPages = Math.ceil(total / 9);
+            const paginationContainer = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '<div class="pagination-buttons">';
+            
+            // Previous button
+            if (currentPage > 0) {
+                paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${currentPage - 1})">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>`;
+            }
+            
+            // Page numbers
+            for (let i = 0; i < totalPages; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<button class="btn btn-primary btn-sm">${i + 1}</button>`;
+                } else {
+                    paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${i})">${i + 1}</button>`;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages - 1) {
+                paginationHTML += `<button class="btn btn-outline btn-sm" onclick="changePage(${currentPage + 1})">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>`;
+            }
+            
+            paginationHTML += '</div>';
+            paginationContainer.innerHTML = paginationHTML;
+        }
+        
+        function changePage(page) {
+            currentPage = page;
+            loadCourses(page, currentFilters);
+            
+            // Scroll to top of courses section
+            document.querySelector('.courses').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
+        function updateResultsCount(total, page) {
+            const startItem = (page * 9) + 1;
+            const endItem = Math.min((page + 1) * 9, total);
+            
+            document.getElementById('results-count').textContent = 
+                `Showing ${startItem}-${endItem} of ${total} courses`;
+        }
+        
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('courses-results').style.display = 'none';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('courses-results').style.display = 'grid';
+        }
+        
+        function showError(message) {
+            document.getElementById('courses-results').innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                    <h3>Error Loading Courses</h3>
+                    <p>${message}</p>
+                    <button class="btn btn-primary" onclick="loadCourses()">Try Again</button>
+                </div>
+            `;
+        }
+        
+        // Load filters from URL on page load
+        window.addEventListener('load', function() {
+            const urlParams = EduMentor.Utils.getUrlParams();
+            
+            Object.keys(urlParams).forEach(key => {
+                const input = document.querySelector(`[name="${key}"]`);
+                if (input) {
+                    input.value = urlParams[key];
+                }
+            });
+            
+            if (Object.keys(urlParams).length > 0) {
+                currentFilters = urlParams;
+                loadCourses(0, urlParams);
+            }
+        });
+    </script>
+    
+    <!-- User Authentication System -->
+    <script src="../assets/js/user-auth.js"></script>
+</body>
+</html>

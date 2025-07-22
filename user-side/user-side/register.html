@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EduMentor Pro</title>
+    <meta name="description" content="Join EduMentor Pro and start your professional teacher training journey today">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/user-auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Redirect to modern registration page
+        window.location.href = 'register-modern.html';
+    </script>
+</head>
+<body class="auth-page">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i> EduMentor Pro
+            </a>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Registration Form Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-form-wrapper">
+                    <div class="auth-header text-center">
+                        <h1>Join EduMentor Pro</h1>
+                        <p class="text-secondary">Start your professional teaching journey today</p>
+                    </div>
+
+                    <!-- Multi-step progress indicator -->
+                    <div class="progress-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Personal Info</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Professional</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Preferences</span>
+                        </div>
+                    </div>
+
+                    <form class="auth-form multi-step-form" id="registerForm" data-ajax="true" action="../backend/api/register.php" method="POST" novalidate>
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" data-step="1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">
+                                        <i class="fas fa-user"></i> First Name
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        class="form-control" 
+                                        placeholder="Enter your first name"
+                                        required
+                                        autocomplete="given-name"
+                                    >
+                                    <div class="form-error" id="firstName-error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">
+                                        <i class="fas fa-user"></i> Last Name
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        class="form-control" 
+                                        placeholder="Enter your last name"
+                                        required
+                                        autocomplete="family-name"
+                                    >
+                                    <div class="form-error" id="lastName-error"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-control" 
+                                    placeholder="Enter your email address"
+                                    required
+                                    autocomplete="email"
+                                >
+                                <div class="form-error" id="email-error"></div>
+                                <div class="form-help">We'll use this email for course updates and notifications</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="form-label">
+                                    <i class="fas fa-lock"></i> Password
+                                </label>
+                                <div class="password-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        id="password" 
+                                        name="password" 
+                                        class="form-control" 
+                                        placeholder="Create a strong password"
+                                        required
+                                        autocomplete="new-password"
+                                        aria-describedby="password-strength password-error"
+                                    >
+                                    <button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false">
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill" id="strength-fill"></div>
+                                    </div>
+                                    <div class="strength-text" id="strength-text">
+                                        <span>Password Strength</span>
+                                        <span class="strength-level"></span>
+                                    </div>
+                                    <div class="password-requirements">
+                                        <div class="requirement-item unmet" data-requirement="length">
+                                            <i class="fas fa-times"></i>
+                                            <span>At least 8 characters</span>
+                                        </div>
+                                        <div class="requirement-item unmet" data-requirement="lowercase">
+                                            <i class="fas fa-times"></i>
+                                            <span>One lowercase letter</span>
+                                        </div>
+                                        <div class="requirement-item unmet" data-requirement="uppercase">
+                                            <i class="fas fa-times"></i>
+                                            <span>One uppercase letter</span>
+                                        </div>
+                                        <div class="requirement-item unmet" data-requirement="number">
+                                            <i class="fas fa-times"></i>
+                                            <span>One number</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-error" id="password-error" role="alert"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">
+                                    <i class="fas fa-lock"></i> Confirm Password
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    class="form-control" 
+                                    placeholder="Confirm your password"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                <div class="form-error" id="confirmPassword-error"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Professional Information -->
+                        <div class="form-step" data-step="2">
+                            <div class="form-group">
+                                <label for="role" class="form-label">
+                                    <i class="fas fa-briefcase"></i> I am a...
+                                </label>
+                                <select id="role" name="role" class="form-control" required>
+                                    <option value="">Select your role</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="administrator">School Administrator</option>
+                                    <option value="trainer">Aspiring Trainer</option>
+                                    <option value="student">Education Student</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-error" id="role-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience" class="form-label">
+                                    <i class="fas fa-clock"></i> Teaching Experience
+                                </label>
+                                <select id="experience" name="experience" class="form-control" required>
+                                    <option value="">Select your experience level</option>
+                                    <option value="0-1">New to Teaching (0-1 years)</option>
+                                    <option value="2-5">Early Career (2-5 years)</option>
+                                    <option value="6-10">Experienced (6-10 years)</option>
+                                    <option value="11-20">Veteran (11-20 years)</option>
+                                    <option value="20+">Master Teacher (20+ years)</option>
+                                </select>
+                                <div class="form-error" id="experience-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">
+                                    <i class="fas fa-book"></i> Primary Subject Area
+                                </label>
+                                <select id="subject" name="subject" class="form-control" required>
+                                    <option value="">Select your subject area</option>
+                                    <option value="elementary">Elementary Education</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="science">Science</option>
+                                    <option value="english">English/Language Arts</option>
+                                    <option value="social-studies">Social Studies</option>
+                                    <option value="arts">Arts & Music</option>
+                                    <option value="physical-education">Physical Education</option>
+                                    <option value="special-education">Special Education</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-error" id="subject-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="institution" class="form-label">
+                                    <i class="fas fa-school"></i> School/Institution (Optional)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="institution" 
+                                    name="institution" 
+                                    class="form-control" 
+                                    placeholder="Enter your school or institution name"
+                                    autocomplete="organization"
+                                >
+                                <div class="form-help">This helps us provide relevant content for your context</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Learning Preferences -->
+                        <div class="form-step" data-step="3">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-target"></i> What are your learning goals?
+                                </label>
+                                <div class="checkbox-group">
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="classroom-management" class="form-check-input">
+                                        <span class="form-check-label">Improve Classroom Management</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="digital-tools" class="form-check-input">
+                                        <span class="form-check-label">Master Digital Teaching Tools</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="assessment" class="form-check-input">
+                                        <span class="form-check-label">Enhance Assessment Strategies</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="special-needs" class="form-check-input">
+                                        <span class="form-check-label">Support Special Needs Students</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="leadership" class="form-check-input">
+                                        <span class="form-check-label">Develop Leadership Skills</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="checkbox" name="goals[]" value="certification" class="form-check-input">
+                                        <span class="form-check-label">Get Professional Certification</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="learningStyle" class="form-label">
+                                    <i class="fas fa-graduation-cap"></i> Preferred Learning Style
+                                </label>
+                                <select id="learningStyle" name="learningStyle" class="form-control" required>
+                                    <option value="">Select your preference</option>
+                                    <option value="self-paced">Self-Paced Online Courses</option>
+                                    <option value="live-sessions">Live Interactive Sessions</option>
+                                    <option value="blended">Blended Learning (Both)</option>
+                                    <option value="community">Community-Based Learning</option>
+                                </select>
+                                <div class="form-error" id="learningStyle-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-check agreement-check">
+                                    <input type="checkbox" name="terms" class="form-check-input" required>
+                                    <span class="form-check-label">
+                                        I agree to the <a href="terms.html" target="_blank">Terms of Service</a> 
+                                        and <a href="privacy.html" target="_blank">Privacy Policy</a>
+                                    </span>
+                                </label>
+                                <div class="form-error" id="terms-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-check">
+                                    <input type="checkbox" name="newsletter" class="form-check-input">
+                                    <span class="form-check-label">
+                                        Send me educational tips and course updates via email
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline" id="prevBtn">
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                <span class="btn-text">Create Account</span>
+                                <span class="btn-loading hidden">
+                                    <i class="fas fa-spinner fa-spin"></i> Creating Account...
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="auth-footer text-center">
+                            <p>Already have an account? <a href="login.html" class="login-link">Sign in here</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Registration Benefits Sidebar -->
+                <div class="auth-sidebar">
+                    <div class="auth-benefits">
+                        <h3>Why Join EduMentor Pro?</h3>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Expert-Led Courses</h4>
+                                <p>Learn from certified educators with real classroom experience</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Professional Certification</h4>
+                                <p>Earn recognized certificates to advance your career</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Global Community</h4>
+                                <p>Connect with educators worldwide and share best practices</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Flexible Learning</h4>
+                                <p>Study at your own pace with lifetime access to content</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-preview">
+                        <blockquote>
+                            "EduMentor Pro transformed my teaching approach. The courses are practical and immediately applicable in the classroom."
+                        </blockquote>
+                        <cite>- Sarah Johnson, High School Teacher</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-minimal">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="contact.html">Contact Support</a>
+                </div>
+                <p>&copy; 2025 EduMentor Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupMultiStepForm();
+            setupPasswordValidation();
+            setupFormValidation();
+        });
+
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function setupMultiStepForm() {
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            nextBtn.addEventListener('click', function() {
+                if (validateCurrentStep()) {
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                }
+            });
+
+            prevBtn.addEventListener('click', function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+
+            // Initialize first step
+            showStep(1);
+        }
+
+        function showStep(step) {
+            // Update progress steps
+            document.querySelectorAll('.step').forEach((stepEl, index) => {
+                stepEl.classList.toggle('active', index < step);
+                stepEl.classList.toggle('completed', index < step - 1);
+            });
+
+            // Show/hide form steps
+            document.querySelectorAll('.form-step').forEach((stepEl, index) => {
+                stepEl.classList.toggle('active', index === step - 1);
+            });
+
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.style.display = step === 1 ? 'none' : 'inline-block';
+            nextBtn.style.display = step === totalSteps ? 'none' : 'inline-block';
+            submitBtn.style.display = step === totalSteps ? 'inline-block' : 'none';
+        }
+
+        function validateCurrentStep() {
+            const currentStepEl = document.querySelector(`[data-step="${currentStep}"].form-step`);
+            const requiredFields = currentStepEl.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+            // Additional step-specific validation
+            if (currentStep === 1) {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    showFieldError('confirmPassword', 'Passwords do not match');
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldName = field.name;
+            
+            clearFieldError(field.id);
+
+            if (!value && field.required) {
+                showFieldError(field.id, 'This field is required');
+                return false;
+            }
+
+            // Email validation
+            if (field.type === 'email' && value && !EduMentor.Utils.validateEmail(value)) {
+                showFieldError(field.id, 'Please enter a valid email address');
+                return false;
+            }
+
+            // Password validation
+            if (field.type === 'password' && fieldName === 'password' && value) {
+                const strength = checkPasswordStrength(value);
+                if (!strength.isStrong) {
+                    showFieldError(field.id, 'Password must meet all requirements above');
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function setupPasswordValidation() {
+            const passwordInput = document.getElementById('password');
+            const strengthIndicator = document.getElementById('password-strength');
+            const toggleBtn = document.querySelector('.password-toggle');
+
+            passwordInput.addEventListener('input', function() {
+                const strength = checkPasswordStrength(this.value);
+                updatePasswordStrength(strengthIndicator, strength);
+            });
+
+            toggleBtn.addEventListener('click', function() {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                
+                const icon = toggleBtn.querySelector('i');
+                icon.className = isPassword ? 'fas fa-eye-slash' : 'fas fa-eye';
+                
+                // Update aria attributes
+                toggleBtn.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+                toggleBtn.setAttribute('aria-pressed', isPassword ? 'true' : 'false');
+            });
+        }
+
+        function checkPasswordStrength(password) {
+            const requirements = {
+                length: password.length >= 8,
+                lowercase: /[a-z]/.test(password),
+                uppercase: /[A-Z]/.test(password),
+                number: /[0-9]/.test(password)
+            };
+
+            const score = Object.values(requirements).filter(Boolean).length;
+            const levels = ['', 'weak', 'fair', 'good', 'strong'];
+            
+            return {
+                score: score,
+                level: levels[score] || '',
+                requirements: requirements,
+                isStrong: score >= 3
+            };
+        }
+
+        function updatePasswordStrength(indicator, strength) {
+            if (!indicator) return;
+
+            const strengthFill = indicator.querySelector('#strength-fill');
+            const strengthText = indicator.querySelector('#strength-text .strength-level');
+            const requirementItems = indicator.querySelectorAll('.requirement-item');
+            
+            // Update strength bar
+            if (strengthFill) {
+                strengthFill.className = `strength-fill ${strength.level}`;
+            }
+            
+            // Update strength text
+            if (strengthText) {
+                strengthText.textContent = strength.level ? strength.level.charAt(0).toUpperCase() + strength.level.slice(1) : '';
+                strengthText.className = `strength-level ${strength.level}`;
+            }
+            
+            // Update requirements
+            requirementItems.forEach(item => {
+                const requirement = item.getAttribute('data-requirement');
+                const icon = item.querySelector('i');
+                const isMet = strength.requirements[requirement];
+                
+                item.className = `requirement-item ${isMet ? 'met' : 'unmet'}`;
+                icon.className = isMet ? 'fas fa-check' : 'fas fa-times';
+            });
+        }
+
+        function setupFormValidation() {
+            const form = document.getElementById('registerForm');
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!validateCurrentStep()) {
+                    return;
+                }
+
+                const submitBtn = document.getElementById('submitBtn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.classList.add('hidden');
+                btnLoading.classList.remove('hidden');
+
+                try {
+                    const formData = new FormData(form);
+                    
+                    // Use fetch directly since we're sending FormData
+                    const response = await fetch('../backend/api/register.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        EduMentor.Utils.showAlert('Account created successfully! Welcome to EduMentor Pro!', 'success');
+                        
+                        setTimeout(() => {
+                            window.location.href = result.data.redirect || 'courses.html';
+                        }, 1500);
+                    } else {
+                        // Handle field-specific errors
+                        if (result.data && typeof result.data === 'object') {
+                            Object.keys(result.data).forEach(field => {
+                                showFieldError(field, result.data[field]);
+                            });
+                        }
+                        EduMentor.Utils.showAlert(result.message || 'Registration failed. Please try again.', 'danger');
+                    }
+                } catch (error) {
+                    EduMentor.Utils.showAlert('Network error. Please check your connection and try again.', 'danger');
+                } finally {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            });
+        }
+
+        function showFieldError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+            
+            if (inputElement) {
+                inputElement.classList.add('error');
+            }
+        }
+
+        function clearFieldError(fieldId) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement) {
+                errorElement.style.display = 'none';
+                errorElement.textContent = '';
+            }
+            
+            if (inputElement) {
+                inputElement.classList.remove('error');
+            }
+        }
+
+        // Initialize mobile navigation
+        Navigation.init();
+    </script>
+    
+    <!-- Authentication Integration -->
+    <script src="../assets/js/register-handler.js"></script>
+</body>
+</html>
