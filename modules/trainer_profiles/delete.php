@@ -19,7 +19,7 @@ try {
         SELECT tp.*, u.name, u.email 
         FROM trainer_profiles tp 
         JOIN users u ON tp.user_id = u.user_id 
-        WHERE tp.id = ?
+        WHERE tp.profile_id = ?
     ");
     $stmt->execute([$profile_id]);
     $trainer = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
             // Delete trainer profile
-            $stmt = $pdo->prepare("DELETE FROM trainer_profiles WHERE id = ?");
+            $stmt = $pdo->prepare("DELETE FROM trainer_profiles WHERE profile_id = ?");
             $stmt->execute([$profile_id]);
             
             // Commit transaction

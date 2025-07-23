@@ -34,19 +34,37 @@ if ($rating_filter > 0) {
 $where_clause = !empty($where_conditions) ? 'WHERE ' . implode(' AND ', $where_conditions) : '';
 
 // Get reviews with course and user information
-$stmt = $pdo->prepare("
-    SELECT r.*, c.title as course_title, c.course_image, u.name as user_name,
-           tp.profile_image as trainer_image, trainer.name as trainer_name
-    FROM reviews r
-    JOIN courses c ON r.course_id = c.course_id
-    JOIN users u ON r.user_id = u.user_id
-    LEFT JOIN users trainer ON c.created_by = trainer.user_id
-    LEFT JOIN trainer_profiles tp ON trainer.user_id = tp.user_id
-    $where_clause
-    ORDER BY r.created_at DESC
-");
-$stmt->execute($params);
-$reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    $query = "
+        SELECT r.*, c.title as course_title, c.course_image, u.name as user_name,
+               tp.profile_image as trainer_image, trainer.name as trainer_name
+        FROM reviews r
+        JOIN courses c ON r.course_id = c.course_id
+        JOIN users u ON r.user_id = u.user_id
+        LEFT JOIN users trainer ON c.created_by = trainer.user_id
+        LEFT JOIN trainer_profiles tp ON trainer.user_id = tp.user_id
+        $where_clause
+        ORDER BY r.created_at DESC
+    ";
+    
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($params);
+    $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Debug: Check if we have reviews
+    $debug_info = "Reviews found: " . count($reviews);
+    if (empty($reviews)) {
+        // Check if there are any reviews at all
+        $count_stmt = $pdo->prepare("SELECT COUNT(*) as total FROM reviews");
+        $count_stmt->execute();
+        $total_reviews = $count_stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        $debug_info .= " | Total reviews in DB: " . $total_reviews;
+    }
+    
+} catch (PDOException $e) {
+    $reviews = [];
+    $debug_info = "Database error: " . $e->getMessage();
+}
 
 // Handle review form submission
 $form_error = '';
@@ -1133,6 +1151,62 @@ $rating_distribution = $rating_dist_stmt->fetchAll(PDO::FETCH_ASSOC);
                 font-size: 1.5rem;
             }
         }
+        
+        /* Alert Styles */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+        }
+        
+        .alert-info {
+            background-color: #e3f2fd;
+            border-color: #1976d2;
+            color: #0d47a1;
+        }
+        
+        /* Review Actions */
+        .review-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .btn-sm {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-warning {
+            background-color: #f59e0b;
+            color: white;
+            border: 1px solid #f59e0b;
+        }
+        
+        .btn-warning:hover {
+            background-color: #d97706;
+            border-color: #d97706;
+        }
+        
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+            border: 1px solid #ef4444;
+        }
+        
+        .btn-danger:hover {
+            background-color: #dc2626;
+            border-color: #dc2626;
+        }
     </style>
 </head>
 <body>
@@ -1390,6 +1464,17 @@ $rating_distribution = $rating_dist_stmt->fetchAll(PDO::FETCH_ASSOC);
                 </form>
             </div>
 
+            <!-- Debug Information (Remove in production) -->
+            <?php /* Debug info commented out for production
+            if (isset($debug_info)): ?>
+                <div class="alert alert-info" style="margin-bottom: 20px;">
+                    <strong>Debug Info:</strong> <?php echo $debug_info; ?>
+                    <?php if (empty($reviews) && isset($total_reviews) && $total_reviews > 0): ?>
+                        <br><small>There are reviews in the database but they're not being displayed. This might be due to JOIN issues or missing related data.</small>
+                    <?php endif; ?>
+                </div>
+            <?php endif; */ ?>
+
             <!-- Reviews Container -->
             <div class="reviews-container">
                 <!-- Reviews List -->
@@ -1461,14 +1546,14 @@ $rating_distribution = $rating_dist_stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <?php endif; ?>
                                 </div>
                                 
-                                <?php if (hasRole('admin') || $user['user_id'] == $review['user_id']): ?>
+                                <?php if (isLoggedIn() && (hasRole('admin') || $_SESSION['user_id'] == $review['user_id'])): ?>
                                     <div class="review-actions">
-                                        <?php if ($user['user_id'] == $review['user_id']): ?>
+                                        <?php if ($_SESSION['user_id'] == $review['user_id']): ?>
                                             <a href="edit.php?id=<?php echo $review['review_id']; ?>" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i> Edit Review
                                             </a>
                                         <?php endif; ?>
-                                        <?php if (hasRole('admin') || $user['user_id'] == $review['user_id']): ?>
+                                        <?php if (hasRole('admin') || $_SESSION['user_id'] == $review['user_id']): ?>
                                             <a href="delete.php?id=<?php echo $review['review_id']; ?>" 
                                                class="btn btn-sm btn-danger"
                                                onclick="return confirm('Are you sure you want to delete this review? This action cannot be undone.')">

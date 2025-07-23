@@ -1434,16 +1434,16 @@ try {
                             </div>
                             
                             <div class="trainer-actions">
-                                <a href="view.php?id=<?php echo $trainer['id']; ?>" class="btn btn-primary btn-sm">
+                                <a href="view.php?id=<?php echo $trainer['profile_id']; ?>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-eye"></i> View Profile
                                 </a>
                                 
                                 <?php if ($trainer['user_id'] == $_SESSION['user_id'] || hasRole('admin')): ?>
-                                    <a href="edit.php?id=<?php echo $trainer['id']; ?>" class="btn btn-warning btn-sm">
+                                    <a href="edit.php?id=<?php echo $trainer['profile_id']; ?>" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
                                     
-                                    <button onclick="deleteTrainerProfile(<?php echo $trainer['id']; ?>)" 
+                                    <button onclick="deleteTrainerProfile(<?php echo $trainer['profile_id']; ?>)" 
                                             class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i> Delete
                                     </button>
