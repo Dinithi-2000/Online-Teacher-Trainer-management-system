@@ -1,0 +1,5 @@
+<!-- Default Course Image Placeholder -->
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="250" fill="#e9ecef"/>
+  <text x="200" y="125" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="18" fill="#6c757d">Course Image</text>
+</svg>
