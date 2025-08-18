@@ -19,6 +19,7 @@ CREATE TABLE courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    category VARCHAR(100) DEFAULT 'General',
     image VARCHAR(255) DEFAULT 'default-course.jpg',
     duration VARCHAR(100) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -82,10 +83,15 @@ INSERT INTO users (name, email, password, role) VALUES
 ('Jane Student', 'student@teachverse.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student');
 
 -- Insert sample courses
-INSERT INTO courses (title, description, duration, price, created_by) VALUES 
-('Web Development Fundamentals', 'Learn the basics of HTML, CSS, and JavaScript', '8 weeks', 299.99, 2),
-('Advanced PHP Programming', 'Master server-side development with PHP', '10 weeks', 399.99, 2),
-('Database Design & MySQL', 'Complete guide to database design and MySQL', '6 weeks', 249.99, 2);
+INSERT INTO courses (title, description, category, duration, price, created_by) VALUES 
+('Web Development Fundamentals', 'Learn the basics of HTML, CSS, and JavaScript', 'Programming', '8 weeks', 299.99, 2),
+('Advanced PHP Programming', 'Master server-side development with PHP', 'Programming', '10 weeks', 399.99, 2),
+('Database Design & MySQL', 'Complete guide to database design and MySQL', 'Technology', '6 weeks', 249.99, 2),
+('Graphic Design Fundamentals', 'Learn the principles of graphic design using Adobe Creative Suite', 'Design', '6 weeks', 199.99, 2),
+('Digital Marketing Strategy', 'Master modern digital marketing techniques and social media', 'Marketing', '8 weeks', 299.99, 2),
+('Business Leadership Skills', 'Develop essential leadership and management skills', 'Business', '10 weeks', 399.99, 2),
+('Spanish Language Course', 'Learn conversational Spanish from beginner to intermediate', 'Language', '12 weeks', 149.99, 2),
+('Data Science with Python', 'Introduction to data analysis and machine learning', 'Science', '14 weeks', 449.99, 2);
 
 -- Insert sample trainer profile
 INSERT INTO trainer_profiles (user_id, bio, experience, certificates) VALUES 

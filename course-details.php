@@ -9,10 +9,7 @@ $stmt = $pdo->prepare("
     SELECT c.*, u.name as creator_name 
     FROM courses c 
     LEFT JOIN users u ON c.created_by = u.user_id 
-    WHERE                                 <a href="auth.php?mode=login&type=user" class="btn btn-primary">
-                                    <i class="fas fa-sign-in-alt"></i> Login to Enroll
-                                </a>
-                                <a href="auth.php?mode=register&type=user" class="btn btn-secondary">urse_id = ?
+    WHERE c.course_id = ?
 ");
 $stmt->execute([$course_id]);
 $course = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -408,43 +408,7 @@ try {
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <a href="index.php" style="color: white; text-decoration: none;">
-                    <i class="fas fa-graduation-cap"></i> TeachVerse
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="courses.php">Courses</a></li>
-                <li><a href="trainers.php">Trainers</a></li>
-                <li><a href="modules/reviews/index.php">Reviews</a></li>
-                <li><a href="about.php" class="active">About Us</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <?php if (isLoggedIn()): ?>
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="fas fa-user"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
-                        </a>
-                        <div class="dropdown-content">
-                            <a href="profile.php"><i class="fas fa-user-edit"></i> Profile</a>
-                            <a href="my-courses.php"><i class="fas fa-book"></i> My Courses</a>
-                            <?php if (hasRole('admin')): ?>
-                                <a href="admin/index.php"><i class="fas fa-cog"></i> Admin Panel</a>
-                            <?php endif; ?>
-                            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
-                    </li>
-                <?php else: ?>
-                    <li><a href="auth.php?mode=login&type=user" class="btn btn-secondary btn-sm">Login</a></li>
-                    <li><a href="auth.php?mode=register&type=user" class="btn btn-primary btn-sm">Register</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-    </header>
+    <?php include 'includes/navbar.php'; ?>
 
     <!-- Hero Section -->
     <section class="about-hero">
